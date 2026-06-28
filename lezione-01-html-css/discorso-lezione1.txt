@@ -1,0 +1,147 @@
+DISCORSO LEZIONE 1 — HTML & CSS
+(Come lo spiegherei a voce a uno studente liceale)
+
+───────────────────────────────────────────────────────────
+
+Allora, partiamo dall'inizio. Ti faccio una domanda: quando apri un sito web,
+cosa vedi? Testo, immagini, bottoni, form... tutto bene. Ma il browser — Chrome,
+Firefox, Safari — come fa a sapere *dove* mettere il titolo, *dove* la foto,
+*dove* il bottone? La risposta è HTML.
+
+HTML non è un linguaggio di programmazione. Non ha variabili, non fa calcoli,
+non prende decisioni. È un *linguaggio di markup*: serve a dire al browser
+"questo è un titolo", "questo è un paragrafo", "questo è un link". Lo fa con
+i *tag*, che sono parole racchiuse tra parentesi angolari < >.
+
+
+LA STRUTTURA BASE
+─────────────────
+Ogni pagina HTML ha lo stesso scheletro. Partiamo da lì:
+
+  <!DOCTYPE html>         → dici al browser "questo è HTML5"
+  <html>                  → apri il documento
+    <head>                → sezione di "testa": info tecniche, non visibili
+      <meta charset="UTF-8">   → abilita lettere accentate (à, è, ì...)
+      <title>Titolo</title>    → quello che compare sulla scheda del browser
+    </head>
+    <body>                → tutto quello che vedi nella pagina va qui
+    </body>
+  </html>                 → chiudi il documento
+
+Nota che i tag si aprono e si chiudono: <body> ... </body>. Quello con lo
+slash / è il tag di chiusura. Alcuni tag però non hanno contenuto e non si
+chiudono, come <img> o <input> — si chiamano tag vuoti.
+
+
+I TAG PRINCIPALI, UNO PER UNO
+──────────────────────────────
+<h1> fino a <h6> — sono i titoli. h1 è il più grande e importante: il titolo
+principale della pagina. h2 è un sotto-titolo, h3 una sezione, e così via.
+Regola pratica: usa h1 UNA volta sola per pagina.
+
+<p> — è il paragrafo. Ci metti dentro un blocco di testo. Il browser aggiunge
+automaticamente uno spazio sopra e sotto, così i paragrafi "respirano".
+
+<a href="..."> — il link. L'attributo href è obbligatorio: dice dove ti porta
+quando clicchi. Esempio: <a href="https://google.it">Vai su Google</a>
+
+<img src="foto.jpg" alt="descrizione"> — l'immagine. src è il percorso del
+file immagine, alt è il testo che appare se l'immagine non carica (importante
+anche per chi usa lettori di schermo).
+
+<div> — un contenitore generico, invisibile. Non ha un significato specifico:
+serve solo per raggruppare elementi insieme e applicarci uno stile CSS. È la
+"scatola" su cui lavori.
+
+<ul> e <ol> con <li> dentro — le liste. ul è non ordinata (pallini), ol è
+ordinata (numeri). Ogni elemento della lista è un <li>.
+
+
+L'ATTRIBUTO ID — IL GANCIO PER JAVASCRIPT
+──────────────────────────────────────────
+Ogni elemento HTML può avere un attributo id. Pensa all'id come al numero
+di casa: ogni casa ha il suo, unico. Nessun altro elemento nella stessa pagina
+può avere lo stesso id.
+
+  <p id="messaggio">Testo iniziale</p>
+
+A cosa serve? Per ora, a niente di visibile. Ma nelle prossime lezioni, quando
+introduciamo JavaScript, useremo l'id per "agganciare" quell'elemento e
+modificarlo dinamicamente. JavaScript dirà:
+
+  document.getElementById("messaggio") → "dammi quell'elemento"
+
+Senza id, JavaScript non saprebbe quale <p> tra i tanti vuoi modificare.
+L'id è il gancio su cui appendere la logica.
+
+
+CSS: COS'È E COME SI COLLEGA
+─────────────────────────────
+HTML dà la struttura. CSS dà il vestito. CSS sta per "Cascading Style Sheet"
+e serve a definire colori, font, dimensioni, spazi, layout.
+
+Si collega all'HTML con un tag <link> nel <head>:
+
+  <link rel="stylesheet" href="stile.css">
+
+In questo modo, tutto quello che scrivi nel file CSS si applica alla pagina HTML.
+
+
+I TRE SELETTORI PRINCIPALI
+────────────────────────────
+Un selettore risponde alla domanda: "a quali elementi applico questo stile?"
+
+1. Selettore di TAG — seleziona tutti gli elementi di quel tipo:
+   p { color: red; }   → tutti i paragrafi diventano rossi
+
+2. Selettore di CLASSE (.nome) — seleziona elementi con class="nome":
+   .evidenziato { background-color: yellow; }
+   HTML: <p class="evidenziato">Testo</p>
+   La stessa classe puoi usarla su più elementi diversi.
+
+3. Selettore di ID (#nome) — seleziona l'elemento con id="nome":
+   #titolo { font-size: 3rem; }
+   Visto che l'id è unico, questo stile si applica a UN solo elemento.
+
+
+IL BOX MODEL — LA METAFORA DEL PACCO REGALO
+─────────────────────────────────────────────
+In CSS ogni elemento è una scatola. Questa scatola ha quattro strati:
+
+- content: il contenuto vero (il testo, l'immagine)
+- padding: lo "spazio interno", come il polistirolo dentro un pacco
+- border: il bordo della scatola
+- margin: lo spazio esterno, la distanza dagli altri elementi vicini
+
+Immagina di imballare un oggetto fragile: l'oggetto è il content, il polistirolo
+è il padding, il cartone è il border, e lo spazio sul tavolo tra un pacco e
+l'altro è il margin.
+
+  .card {
+    padding: 20px;      /* spazio interno */
+    border: 1px solid gray;
+    margin: 10px;       /* spazio esterno */
+  }
+
+
+LE PSEUDO-CLASSI: HOVER E FOCUS
+─────────────────────────────────
+Le pseudo-classi selezionano un elemento quando è in uno stato specifico.
+Non si usano sempre, solo quando l'elemento "fa qualcosa".
+
+:hover — si attiva quando il mouse passa sopra quell'elemento.
+  button:hover { background-color: darkblue; }
+  Così il bottone cambia colore quando ci passi sopra: feedback visivo all'utente.
+
+:focus — si attiva quando un input riceve il cursore (ci clicchi dentro o navighi
+con Tab). Fondamentale per l'accessibilità.
+  input:focus { border: 2px solid blue; }
+  Quando sei dentro il campo, compare un bordo blu: l'utente sa dove sta scrivendo.
+
+
+OK, per oggi è tutto. Il punto da portarti a casa è questo: HTML = struttura,
+CSS = stile. Due linguaggi separati, che lavorano insieme. Nelle prossime lezioni
+aggiungeremo il terzo pezzo: JavaScript, che porta la logica e l'interattività.
+
+───────────────────────────────────────────────────────────
+Fine discorso — Lezione 01

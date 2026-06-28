@@ -1,0 +1,332 @@
+========================================================
+  ESERCIZI — LEZIONE 01: HTML & CSS
+========================================================
+Regola: crea i file HTML e CSS da zero, a mano.
+        Non copiare codice da internet. Niente Bootstrap
+        per gli esercizi FACILI e MEDI (solo HTML e CSS puri).
+========================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LIVELLO FACILE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ Esercizio 1 ] — La mia pagina personale
+------------------------------------------
+Crea un file "profilo.html".
+
+Consegna:
+  La pagina deve contenere:
+    - Un titolo principale con il tuo nome (usa h1)
+    - Un sottotitolo "Chi sono" (usa h2)
+    - Un paragrafo di 3-4 righe che ti descrive
+    - Un altro sottotitolo "Le mie materie preferite" (usa h2)
+    - Una lista NON ordinata (ul) con almeno 4 materie
+    - Un link che porta al sito della tua scuola
+      (se non lo conosci, usa href="#" come segnaposto)
+
+Risultato atteso:
+  Una pagina leggibile nel browser con gerarchia visiva
+  chiara: titolo grande, sottotitoli medi, paragrafo e
+  lista. Il link deve essere cliccabile (anche se non
+  porta da nessuna parte con href="#").
+
+
+[ Esercizio 2 ] — La classifica della settimana
+-------------------------------------------------
+Crea un file "classifica.html".
+
+Consegna:
+  La pagina deve contenere:
+    - Un h1 "Classifica film del mese"
+    - Una lista ORDINATA (ol) con 5 film a tua scelta,
+      ogni voce deve riportare titolo e anno tra parentesi
+      Es: "Interstellar (2014)"
+    - Sotto la lista, un paragrafo con scritto:
+      "Fonte: mia opinione personale"
+      dove la parola "personale" sia in grassetto (strong)
+      e "opinione" sia in corsivo (em)
+
+Risultato atteso:
+  La lista è numerata automaticamente dal browser (1, 2, 3...).
+  Il paragrafo finale mostra grassetto e corsivo sulle
+  parole indicate.
+
+
+[ Esercizio 3 ] — Galleria con link
+-------------------------------------
+Crea un file "galleria.html".
+
+Consegna:
+  La pagina deve contenere:
+    - Un h1 "Le mie foto"
+    - Tre immagini qualsiasi scaricate da internet
+      (o usa immagini placeholder: https://via.placeholder.com/200)
+    - Ogni immagine deve avere l'attributo alt con una
+      descrizione significativa
+    - Ogni immagine deve essere avvolta da un tag <a>
+      che, al click, apre l'immagine in una nuova scheda
+      (attributo target="_blank")
+
+Risultato atteso:
+  Tre immagini visibili nella pagina. Cliccando su una
+  immagine si apre la stessa immagine in una nuova scheda
+  del browser.
+
+
+[ Esercizio 4 ] — Articolo di blog
+-------------------------------------
+Crea un file "articolo.html".
+
+Consegna:
+  Simula un articolo di blog su un argomento che ti piace
+  (sport, musica, tecnologia, ecc.). La pagina deve avere:
+    - Un h1 con il titolo dell'articolo
+    - Un paragrafo di introduzione (almeno 3 righe)
+    - Un h2 "Punti principali"
+    - Una lista ordinata con 3 punti principali
+    - Un h2 "Conclusione"
+    - Un paragrafo di conclusione
+    - In tutto il testo, almeno 2 parole in grassetto
+      e almeno 2 parole in corsivo, messe dove ha senso
+
+Risultato atteso:
+  Una pagina che assomiglia a un vero articolo, con
+  struttura gerarchica (h1 > h2 > paragrafi), lista
+  numerata e parole in evidenza nel testo.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LIVELLO MEDIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ Esercizio 5 ] — Form di contatto
+-------------------------------------
+Crea due file: "contatto.html" e "contatto.css".
+
+Consegna:
+  Il form deve avere questi campi:
+    - Nome (input di tipo text, obbligatorio)
+    - Email (input di tipo email, obbligatorio)
+    - Argomento (select con 3 opzioni a scelta)
+    - Messaggio (usa il tag <textarea>, almeno 4 righe)
+    - Un pulsante "Invia messaggio"
+  Nel CSS:
+    - Dai un colore di sfondo diverso da bianco alla pagina
+    - Rendi il form centrato e con larghezza massima 500px
+    - Cambia il colore del bordo degli input quando sono
+      attivi (usa il selettore :focus)
+    - Il pulsante deve cambiare colore al passaggio del
+      mouse (usa :hover)
+
+Risultato atteso:
+  Un form visivamente curato, centrato nella pagina.
+  Quando clicchi su un campo, il bordo cambia colore.
+  Quando passi il mouse sul pulsante, cambia colore.
+
+Suggerimento:
+  Usa <textarea rows="4"> per il campo messaggio.
+  Per centrare il form: margin: 0 auto; + display: block;
+  oppure metti il form dentro un div e usa flexbox sul div.
+
+
+[ Esercizio 6 ] — Tabella orario scolastico
+---------------------------------------------
+Crea due file: "orario.html" e "orario.css".
+
+Consegna:
+  Costruisci una tabella con l'orario settimanale di
+  5 giorni (lun-ven) e almeno 4 ore al giorno.
+  La tabella deve avere:
+    - Una riga di intestazione (<thead>) con i giorni
+    - Una colonna a sinistra con gli orari (8:00, 9:00...)
+    - Le materie nelle celle corrispondenti
+  Nel CSS:
+    - Aggiungi un bordo a tutte le celle
+    - La riga di intestazione deve avere sfondo scuro e
+      testo chiaro
+    - Le righe dispari devono avere uno sfondo leggermente
+      diverso da quelle pari (usa :nth-child)
+    - Al passaggio del mouse su una riga, evidenziala
+      con un colore diverso (usa tr:hover)
+
+Risultato atteso:
+  Una tabella leggibile con righe alternate di colori
+  diversi. Passando il mouse su una riga, si evidenzia.
+
+Suggerimento:
+  Usa <table>, <thead>, <tbody>, <tr>, <th>, <td>.
+  Per il bordo: border-collapse: collapse; sul tag table.
+  Per righe alternate: tr:nth-child(even) { ... }
+
+
+[ Esercizio 7 ] — Card con box model
+--------------------------------------
+Crea due file: "card.html" e "card.css".
+
+Consegna:
+  Crea una pagina con 3 "card" (schede) affiancate.
+  Ogni card deve contenere:
+    - Un titolo (h3)
+    - Un breve testo (p)
+    - Un link "Leggi di più"
+  Nel CSS, ogni card deve avere:
+    - Sfondo bianco (o colorato a scelta)
+    - Padding interno di almeno 20px
+    - Un bordo arrotondato (border-radius)
+    - Un margine tra una card e l'altra
+    - Un'ombra (usa box-shadow)
+    - Al passaggio del mouse, l'ombra deve diventare
+      più grande o più scura (usa :hover)
+  Le 3 card devono stare sulla stessa riga.
+
+Risultato atteso:
+  Tre card affiancate con contenuto, ombra visibile.
+  Al passaggio del mouse l'ombra si "alza", dando un
+  effetto di profondità.
+
+Suggerimento:
+  Per affiancare le card puoi usare display: flex;
+  sul contenitore padre.
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); è un buon punto
+  di partenza.
+
+
+[ Esercizio 8 ] — Selettori CSS in azione
+-------------------------------------------
+Crea due file: "selettori.html" e "selettori.css".
+
+Consegna:
+  Costruisci una pagina con questo contenuto HTML:
+    - Un div con id="intestazione" che contiene un h1
+    - Un div con class="sezione" che contiene un h2
+      e due paragrafi
+    - Un secondo div con class="sezione" che contiene
+      un h2 e due paragrafi
+    - Un paragrafo FUORI dai div, alla fine della pagina
+  Nel CSS devi usare almeno questi selettori:
+    - Il selettore di tag: stile di base per tutti i p
+    - Il selettore di classe: stile specifico per .sezione
+    - Il selettore di id: stile specifico per #intestazione
+    - Il selettore discendente: stile solo per i p che
+      sono dentro .sezione (diverso dagli altri p)
+    - Il selettore :first-child per il primo paragrafo
+      dentro ogni .sezione
+
+Risultato atteso:
+  I paragrafi dentro .sezione hanno stile diverso dal
+  paragrafo fuori. L'intestazione ha stile unico grazie
+  all'id. Il primo paragrafo di ogni sezione è distinto.
+
+Suggerimento:
+  Il selettore discendente si scrive così: .sezione p { }
+  Questo seleziona solo i <p> che sono dentro .sezione.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LIVELLO COMPLETO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ Esercizio 9 ] — Pagina registro voti
+-----------------------------------------
+Crea due file separati: "registro.html" e "registro.css".
+Il CSS deve essere collegato all'HTML con <link>, non
+scritto dentro lo stesso file.
+
+--- CONSEGNA DETTAGLIATA ---
+
+STRUTTURA HTML (registro.html):
+
+  1. Intestazione della pagina
+     - h1 con titolo "Registro Voti"
+     - Un paragrafo con classe "sottotitolo" che dice
+       "Inserisci un voto e visualizzalo in tabella"
+
+  2. Form di inserimento
+     Deve contenere, in questo ordine:
+       a) Campo testo per il nome dello studente
+          (label + input type="text", id="nome")
+       b) Campo testo per la materia
+          (label + input type="text", id="materia")
+       c) Campo numerico per il voto (da 1 a 10)
+          (label + input type="number", id="voto",
+           attributi min="1" e max="10")
+       d) Menu a tendina per il tipo di valutazione
+          (label + select con id="tipo")
+          Opzioni: Interrogazione, Compito scritto,
+                   Progetto, Partecipazione
+       e) Pulsante "Aggiungi voto" (button type="button")
+
+  3. Tabella dei voti
+     - Titolo h2 "Voti inseriti"
+     - Una tabella con id="tabella-voti"
+     - Intestazione (thead) con colonne:
+       Studente | Materia | Voto | Tipo | Data
+     - Un corpo tabella (tbody) vuoto per ora
+       (il tbody avrà id="corpo-tabella")
+     Nota: la tabella sarà popolata da JavaScript
+     nelle lezioni successive; per ora la costruisci
+     vuota ma con la struttura corretta.
+
+STILE CSS (registro.css):
+
+  1. Layout generale
+     - Sfondo della pagina: colore neutro (grigio chiaro
+       o simile, non bianco puro)
+     - Font di base sans-serif per tutta la pagina
+     - Larghezza massima della pagina: 800px, centrata
+
+  2. Intestazione
+     - Il div o header con h1 deve avere sfondo scuro
+       e testo bianco
+     - Padding di almeno 20px
+     - Il .sottotitolo deve avere testo più piccolo e
+       colore leggermente opaco rispetto al bianco puro
+
+  3. Form
+     - Sfondo bianco, padding, bordo arrotondato, ombra
+     - Ogni coppia label+input deve stare su una riga
+       (usa display: block sulle label)
+     - Gli input e il select devono avere width: 100%,
+       padding, bordo e border-radius
+     - Al :focus gli input cambiano colore di bordo
+     - Il pulsante deve avere: colore di sfondo deciso,
+       testo bianco, padding generoso, nessun bordo,
+       border-radius, cursor: pointer
+     - Al :hover il pulsante schiarisce o scurisce
+
+  4. Tabella
+     - Sfondo bianco, padding, bordo arrotondato, ombra
+       (stessa "card" del form, per coerenza visiva)
+     - Bordi interni alle celle con border-collapse
+     - La riga di intestazione (thead) ha sfondo scuro
+       e testo bianco, come l'intestazione della pagina
+     - Le righe pari del tbody hanno sfondo leggermente
+       diverso (usa tbody tr:nth-child(even))
+     - Al :hover su una riga del tbody si evidenzia
+
+  5. Responsive minimale
+     - Sotto 600px di larghezza, la larghezza massima
+       diventa 100% e i margini laterali si azzerano
+
+--- RISULTATO ATTESO ---
+
+  Aprendo registro.html nel browser si vede:
+    - Un'intestazione scura con titolo e sottotitolo
+    - Una "card" bianca con il form, campi ben spaziati,
+      pulsante colorato che reagisce al mouse
+    - Una "card" bianca con la tabella vuota ma con
+      intestazione scura e struttura pronta
+  L'aspetto generale è coerente: stessi colori, stesse
+  ombre, stesso border-radius usati sia nel form che
+  nella tabella.
+  Su schermi stretti (< 600px) la pagina non ha barre
+  di scorrimento orizzontali.
+
+  (Nella prossima lezione aggiungeremo il JavaScript
+  che legge i valori del form e inserisce righe
+  nella tabella al click del pulsante.)
+
+========================================================
+  Fine esercizi — Lezione 01
+========================================================

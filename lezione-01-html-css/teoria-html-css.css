@@ -1,0 +1,84 @@
+/* =====================================================
+   TEORIA HTML & CSS — foglio di stile
+   Tema: sfondo scuro, font monospace, stile "editor"
+   ===================================================== */
+
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  padding: 2rem;
+}
+
+/* Intestazione principale */
+h1 {
+  color: #cba6f7;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #45475a;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Titoli di sezione */
+h2 {
+  color: #89b4fa;
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-left: 4px solid #89b4fa;
+}
+
+/* Blocchi di codice commentato — il cuore degli appunti */
+.blocco-appunti {
+  background-color: #181825;
+  border: 1px solid #313244;
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.blocco-appunti pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Colori sintassi artigianali */
+.tag        { color: #f38ba8; }   /* tag HTML → rosso */
+.attr       { color: #fab387; }   /* attributi → arancione */
+.val        { color: #a6e3a1; }   /* valori → verde */
+.commento   { color: #6c7086; font-style: italic; } /* commenti → grigio */
+.keyword    { color: #cba6f7; }   /* parole chiave CSS → viola */
+.prop       { color: #89dceb; }   /* proprietà CSS → azzurro */
+.valore-css { color: #a6e3a1; }   /* valori CSS → verde */
+
+/* Nota a margine */
+.nota {
+  background-color: #1e1e2e;
+  border-left: 3px solid #f9e2af;
+  color: #f9e2af;
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #45475a;
+  color: #6c7086;
+  font-size: 0.85rem;
+  text-align: center;
+}

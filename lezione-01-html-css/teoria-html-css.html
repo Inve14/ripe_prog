@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appunti — HTML & CSS</title>
+  <link rel="stylesheet" href="teoria-html-css.css">
+</head>
+<body>
+
+  <h1>// Appunti — Lezione 01: HTML & CSS</h1>
+
+  <!-- ================================================
+       SEZIONE 1 — STRUTTURA BASE DI UNA PAGINA HTML
+       ================================================ -->
+  <h2>1. Struttura base di una pagina HTML</h2>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">&lt;!-- Ogni file HTML deve iniziare con questa dichiarazione.
+     Dice al browser: "questo è un documento HTML5". --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+
+<span class="commento">&lt;!-- &lt;html&gt; è l'elemento radice: contiene TUTTO il resto.
+     lang="it" dice al browser che la lingua è italiano. --&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"it"</span><span class="tag">&gt;</span>
+
+<span class="commento">&lt;!-- &lt;head&gt; = la "testa" del documento.
+     Contiene informazioni INVISIBILI nella pagina:
+     titolo, charset, link a CSS, meta dati. --&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>          <span class="commento">&lt;!-- codifica caratteri: include lettere accentate --&gt;</span>
+  <span class="tag">&lt;title&gt;</span>La mia pagina<span class="tag">&lt;/title&gt;</span>  <span class="commento">&lt;!-- testo che appare sulla scheda del browser --&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+
+<span class="commento">&lt;!-- &lt;body&gt; = il "corpo" della pagina.
+     Tutto ciò che scrivi qui viene visualizzato dall'utente. --&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="commento">&lt;!-- contenuto della pagina --&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+
+<span class="tag">&lt;/html&gt;</span></pre></div>
+
+  <!-- ================================================
+       SEZIONE 2 — TAG PRINCIPALI
+       ================================================ -->
+  <h2>2. Tag principali</h2>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">&lt;!-- TITOLI: da h1 (più grande/importante) a h6 (più piccolo).
+     h1 = titolo principale della pagina, usalo UNA VOLTA SOLA.
+     h2, h3... = sotto-titoli e sezioni. --&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Titolo principale<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Sotto-titolo<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span>Sezione<span class="tag">&lt;/h3&gt;</span>
+
+<span class="commento">&lt;!-- PARAGRAFO: &lt;p&gt; crea un blocco di testo.
+     Il browser aggiunge automaticamente spazio sopra e sotto. --&gt;</span>
+<span class="tag">&lt;p&gt;</span>Questo è un paragrafo di testo normale.<span class="tag">&lt;/p&gt;</span>
+
+<span class="commento">&lt;!-- LINK: &lt;a&gt; crea un collegamento cliccabile.
+     href = "dove vai" quando clicchi.
+     target="_blank" = apre in una nuova scheda. --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://esempio.it"</span> <span class="attr">target</span>=<span class="val">"_blank"</span><span class="tag">&gt;</span>Clicca qui<span class="tag">&lt;/a&gt;</span>
+
+<span class="commento">&lt;!-- IMMAGINE: &lt;img&gt; è un tag "auto-chiudente" (non ha tag di chiusura).
+     src = percorso o URL dell'immagine.
+     alt = testo alternativo se l'immagine non carica (e per accessibilità). --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"foto.jpg"</span> <span class="attr">alt</span>=<span class="val">"Descrizione immagine"</span><span class="tag">&gt;</span>
+
+<span class="commento">&lt;!-- DIV: contenitore generico. Non ha significato semantico.
+     Serve per raggruppare elementi e applicare stili CSS.
+     È come una "scatola invisibile". --&gt;</span>
+<span class="tag">&lt;div&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Elementi raggruppati nel div.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="commento">&lt;!-- SPAN: come il div, ma inline (non va a capo).
+     Usato per stilizzare una parte di testo. --&gt;</span>
+<span class="tag">&lt;p&gt;</span>Il voto è <span class="tag">&lt;span</span> <span class="attr">style</span>=<span class="val">"color:red"</span><span class="tag">&gt;</span>8<span class="tag">&lt;/span&gt;</span>.<span class="tag">&lt;/p&gt;</span>
+
+<span class="commento">&lt;!-- LISTE:
+     &lt;ul&gt; = lista NON ordinata (punti elenco)
+     &lt;ol&gt; = lista ordinata (numeri)
+     &lt;li&gt; = singola voce della lista --&gt;</span>
+<span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Primo elemento<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Secondo elemento<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+<span class="commento">&lt;!-- TESTO IN GRASSETTO E CORSIVO --&gt;</span>
+<span class="tag">&lt;strong&gt;</span>Testo importante (grassetto)<span class="tag">&lt;/strong&gt;</span>
+<span class="tag">&lt;em&gt;</span>Testo enfatizzato (corsivo)<span class="tag">&lt;/em&gt;</span></pre></div>
+
+  <!-- ================================================
+       SEZIONE 3 — FORM E INPUT
+       ================================================ -->
+  <h2>3. Form e Input</h2>
+
+  <div class="nota">
+    I form servono a raccogliere dati dall'utente. In HTML definiscono la STRUTTURA.
+    JavaScript li rende interattivi.
+  </div>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">&lt;!-- FORM: il contenitore di tutti i campi di input.
+     action = dove inviare i dati (URL del server).
+     method = come inviare: GET (visibile in URL) o POST (nascosto). --&gt;</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/invia"</span> <span class="attr">method</span>=<span class="val">"post"</span><span class="tag">&gt;</span>
+
+  <span class="commento">&lt;!-- LABEL: etichetta collegata a un input tramite "for" = "id" dell'input.
+       Cliccando sulla label, il cursore va nell'input. --&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"nome"</span><span class="tag">&gt;</span>Nome:<span class="tag">&lt;/label&gt;</span>
+
+  <span class="commento">&lt;!-- INPUT type="text": campo di testo a riga singola.
+       name = nome del campo quando il form viene inviato.
+       placeholder = testo grigio suggerito prima che l'utente scriva. --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"nome"</span> <span class="attr">name</span>=<span class="val">"nome"</span> <span class="attr">placeholder</span>=<span class="val">"Inserisci nome"</span><span class="tag">&gt;</span>
+
+  <span class="commento">&lt;!-- INPUT type="number": accetta solo numeri. --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">id</span>=<span class="val">"voto"</span> <span class="attr">name</span>=<span class="val">"voto"</span> <span class="attr">min</span>=<span class="val">"1"</span> <span class="attr">max</span>=<span class="val">"10"</span><span class="tag">&gt;</span>
+
+  <span class="commento">&lt;!-- INPUT type="email": valida automaticamente il formato email. --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"email"</span> <span class="attr">name</span>=<span class="val">"email"</span><span class="tag">&gt;</span>
+
+  <span class="commento">&lt;!-- SELECT: menù a tendina.
+       &lt;option&gt; = ogni voce del menù. --&gt;</span>
+  <span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="val">"materia"</span> <span class="attr">name</span>=<span class="val">"materia"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="val">"matematica"</span><span class="tag">&gt;</span>Matematica<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="val">"italiano"</span><span class="tag">&gt;</span>Italiano<span class="tag">&lt;/option&gt;</span>
+  <span class="tag">&lt;/select&gt;</span>
+
+  <span class="commento">&lt;!-- BUTTON type="submit": invia il form quando cliccato. --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Invia<span class="tag">&lt;/button&gt;</span>
+
+<span class="tag">&lt;/form&gt;</span></pre></div>
+
+  <!-- ================================================
+       SEZIONE 4 — ATTRIBUTO ID
+       ================================================ -->
+  <h2>4. L'attributo <code style="color:#a6e3a1">id</code> — il "gancio" per JavaScript</h2>
+
+  <div class="nota">
+    L'id è come un nome unico sulla carta d'identità: OGNI elemento può averne uno solo,
+    e ogni id deve essere unico nell'intera pagina.
+  </div>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">&lt;!-- id = identificatore univoco di un elemento.
+     Regola d'oro: non possono esistere due elementi con lo stesso id. --&gt;</span>
+<span class="tag">&lt;h1</span> <span class="attr">id</span>=<span class="val">"titolo-principale"</span><span class="tag">&gt;</span>Benvenuto<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p</span>  <span class="attr">id</span>=<span class="val">"messaggio"</span><span class="tag">&gt;</span>Testo iniziale<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="val">"campo-nome"</span> <span class="attr">type</span>=<span class="val">"text"</span><span class="tag">&gt;</span>
+
+<span class="commento">&lt;!-- In JavaScript, per "agganciare" un elemento usi:
+     document.getElementById("messaggio")
+     Questo restituisce l'elemento HTML e ti permette di modificarlo.
+
+     Esempio (anticipazione JavaScript):
+     document.getElementById("messaggio").textContent = "Ciao!"
+     → cambia il testo del &lt;p id="messaggio"&gt; in "Ciao!"
+
+     Senza id, JavaScript non saprebbe QUALE elemento modificare
+     se ne esistono tanti dello stesso tipo. --&gt;</span></pre></div>
+
+  <!-- ================================================
+       SEZIONE 5 — SELETTORI CSS
+       ================================================ -->
+  <h2>5. Selettori CSS</h2>
+
+  <div class="nota">
+    Un selettore CSS risponde alla domanda: "a QUALI elementi voglio applicare questo stile?"
+  </div>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">/* ── 1. SELETTORE UNIVERSALE ──
+   Il simbolo * seleziona TUTTI gli elementi della pagina.
+   Usato spesso per il reset dei margini/padding. */</span>
+<span class="keyword">*</span> {
+  <span class="prop">margin</span>: <span class="valore-css">0</span>;
+  <span class="prop">padding</span>: <span class="valore-css">0</span>;
+}
+
+<span class="commento">/* ── 2. SELETTORE DI ELEMENTO (tag) ──
+   Si usa il nome del tag. Colpisce TUTTI gli elementi di quel tipo. */</span>
+<span class="keyword">p</span> {
+  <span class="prop">color</span>: <span class="valore-css">#333</span>;       <span class="commento">/* tutti i &lt;p&gt; avranno questo colore */</span>
+}
+<span class="keyword">h1</span> {
+  <span class="prop">font-size</span>: <span class="valore-css">2rem</span>;
+}
+
+<span class="commento">/* ── 3. SELETTORE DI CLASSE (.nome-classe) ──
+   Colpisce gli elementi che hanno class="nome-classe".
+   La stessa classe può essere usata su più elementi. */</span>
+<span class="keyword">.evidenziato</span> {
+  <span class="prop">background-color</span>: <span class="valore-css">yellow</span>;
+}
+<span class="commento">/* HTML: &lt;p class="evidenziato"&gt;Testo&lt;/p&gt; */</span>
+
+<span class="commento">/* ── 4. SELETTORE DI ID (#nome-id) ──
+   Colpisce l'elemento con id="nome-id". UNO SOLO nella pagina.
+   Ha priorità più alta rispetto alle classi. */</span>
+<span class="keyword">#titolo-principale</span> {
+  <span class="prop">color</span>: <span class="valore-css">navy</span>;
+  <span class="prop">text-align</span>: <span class="valore-css">center</span>;
+}
+<span class="commento">/* HTML: &lt;h1 id="titolo-principale"&gt;...&lt;/h1&gt; */</span>
+
+<span class="commento">/* ── 5. SELETTORE DISCENDENTE ──
+   Spazio tra selettori = "elementi A che stanno DENTRO B". */</span>
+<span class="keyword">div p</span> {
+  <span class="commento">/* solo i &lt;p&gt; che si trovano dentro un &lt;div&gt; */</span>
+  <span class="prop">font-style</span>: <span class="valore-css">italic</span>;
+}</pre></div>
+
+  <!-- ================================================
+       SEZIONE 6 — BOX MODEL
+       ================================================ -->
+  <h2>6. Box Model</h2>
+
+  <div class="nota">
+    In CSS ogni elemento è una "scatola" con quattro strati, dall'interno all'esterno:
+    content → padding → border → margin.
+  </div>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">/*
+   Immagina una cornice con un quadro:
+
+   ┌─────────────────────────────────┐
+   │           MARGIN                │  ← spazio esterno (tra elementi)
+   │   ┌─────────────────────┐       │
+   │   │       BORDER        │       │  ← bordo visibile
+   │   │  ┌───────────────┐  │       │
+   │   │  │    PADDING    │  │       │  ← spazio interno (tra bordo e contenuto)
+   │   │  │  ┌─────────┐  │  │       │
+   │   │  │  │ CONTENT │  │  │       │  ← il testo/immagine vera e propria
+   │   │  │  └─────────┘  │  │       │
+   │   │  └───────────────┘  │       │
+   │   └─────────────────────┘       │
+   └─────────────────────────────────┘
+
+   - content: larghezza/altezza del contenuto (width, height)
+   - padding: respiro interno (tra il testo e il bordo)
+   - border: il bordo della scatola
+   - margin: distanza dagli altri elementi vicini
+*/</span>
+
+<span class="keyword">.card</span> {
+  <span class="prop">width</span>: <span class="valore-css">300px</span>;          <span class="commento">/* larghezza del contenuto */</span>
+  <span class="prop">height</span>: <span class="valore-css">200px</span>;         <span class="commento">/* altezza del contenuto */</span>
+  <span class="prop">padding</span>: <span class="valore-css">20px</span>;         <span class="commento">/* 20px di spazio su tutti e 4 i lati interni */</span>
+  <span class="prop">border</span>: <span class="valore-css">2px solid black</span>; <span class="commento">/* bordo spesso 2px, solido, nero */</span>
+  <span class="prop">margin</span>: <span class="valore-css">10px auto</span>;     <span class="commento">/* 10px sopra/sotto, auto = centrato orizzontalmente */</span>
+}
+
+<span class="commento">/* box-sizing: border-box → il padding e border
+   NON si aggiungono alle dimensioni dichiarate.
+   width: 300px rimane 300px in totale. */</span>
+<span class="keyword">*</span> {
+  <span class="prop">box-sizing</span>: <span class="valore-css">border-box</span>;
+}</pre></div>
+
+  <!-- ================================================
+       SEZIONE 7 — PSEUDO-CLASSI
+       ================================================ -->
+  <h2>7. Pseudo-classi CSS</h2>
+
+  <div class="nota">
+    Le pseudo-classi selezionano elementi in uno STATO specifico (quando ci passi sopra il mouse,
+    quando sono selezionati, ecc.). Si scrivono con i due punti: elemento:stato.
+  </div>
+
+  <div class="blocco-appunti"><pre>
+<span class="commento">/* :hover — si attiva quando il mouse passa sopra l'elemento.
+   Usato spesso su link e bottoni per dare feedback visivo. */</span>
+<span class="keyword">button:hover</span> {
+  <span class="prop">background-color</span>: <span class="valore-css">#0056b3</span>;
+  <span class="prop">cursor</span>: <span class="valore-css">pointer</span>;   <span class="commento">/* cambia il cursore in "manina" */</span>
+}
+
+<span class="keyword">a:hover</span> {
+  <span class="prop">text-decoration</span>: <span class="valore-css">underline</span>;
+  <span class="prop">color</span>: <span class="valore-css">red</span>;
+}
+
+<span class="commento">/* :focus — si attiva quando un elemento riceve il "fuoco" del tastiera.
+   Tipico degli input: quando ci clicchi dentro (o navighi con Tab).
+   Importante per l'accessibilità! --&gt; */</span>
+<span class="keyword">input:focus</span> {
+  <span class="prop">outline</span>: <span class="valore-css">2px solid #4dabf7</span>;  <span class="commento">/* bordo blu quando sei dentro l'input */</span>
+  <span class="prop">background-color</span>: <span class="valore-css">#f0f8ff</span>;
+}
+
+<span class="commento">/* :nth-child(n) — seleziona l'n-esimo figlio.
+   Utile per colorare righe alternate in una tabella. */</span>
+<span class="keyword">tr:nth-child(even)</span> {
+  <span class="prop">background-color</span>: <span class="valore-css">#f2f2f2</span>;   <span class="commento">/* righe pari = sfondo grigio chiaro */</span>
+}
+
+<span class="commento">/* :first-child / :last-child */</span>
+<span class="keyword">li:first-child</span> {
+  <span class="prop">font-weight</span>: <span class="valore-css">bold</span>;   <span class="commento">/* solo il primo &lt;li&gt; in grassetto */</span>
+}</pre></div>
+
+  <footer>
+    Appunti lezione 01 · HTML & CSS · Aggiornato: 2026
+  </footer>
+
+</body>
+</html>
