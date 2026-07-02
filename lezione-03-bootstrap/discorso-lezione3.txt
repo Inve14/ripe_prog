@@ -1,0 +1,203 @@
+================================================================
+  DISCORSO LEZIONE 3 — BOOTSTRAP
+  Come se lo spiegasse un insegnante a voce
+================================================================
+
+Bene, oggi parliamo di Bootstrap. Prima di tutto voglio spiegarti
+perché esiste, perché se capisci il problema che risolve, tutto
+il resto ti verrà naturale.
+
+Immagina di dover costruire una pagina web a mano con solo HTML e CSS.
+Vuoi tre colonne affiancate? Devi calcolare le larghezze in percentuale,
+gestire i margini, fare in modo che su smartphone si impilino invece di
+stringersi fino a diventare illeggibili. Vuoi un pulsante carino? Devi
+impostare il colore, il bordo arrotondato, il padding, l'effetto al
+passaggio del mouse. Tutto a mano. Per ogni progetto. Da zero.
+
+Bootstrap risolve esattamente questo. È una libreria CSS — un file CSS
+enorme già scritto da altri — che metti nella tua pagina con un unico
+link e hai subito a disposizione centinaia di classi pronte. Non devi
+scrivere quasi niente. Basta sapere quale classe usare.
+
+E c'è un altro vantaggio enorme: il responsive. Cioè il fatto che la
+pagina si adatta automaticamente alla dimensione dello schermo. Con il
+CSS scritto a mano devi pensarci tu, con Bootstrap lo ottieni quasi gratis.
+
+
+---- COME SI COLLEGA BOOTSTRAP ----
+
+Prima di vedere le classi, vediamo come si "accende" Bootstrap, perché
+è il primo dubbio che viene a tutti: "devo scaricare qualcosa? installare
+qualcosa?" No. Niente da scaricare, niente da installare.
+
+Bootstrap sta su un CDN, cioè un server esterno che tiene già pronti i
+file e te li manda quando la tua pagina li richiede. Tu devi solo
+aggiungere due righe:
+
+  1. Nel <head> della pagina, un tag <link> che punta al CSS di Bootstrap.
+     Questo basta da solo per usare tutte le classi di stile — colonne,
+     pulsanti, card, tutto.
+
+  2. Appena prima di </body>, un tag <script> che punta al JS di Bootstrap.
+     Questo serve solo se usi componenti che si "muovono" da soli, tipo
+     un menu a tendina o un alert che si chiude cliccando una X. Per
+     tutto quello che vediamo oggi (griglia, pulsanti, form, tabelle,
+     card, alert) non è nemmeno obbligatorio, ma è buona abitudine
+     metterlo comunque.
+
+Nella pagina di teoria trovi l'esempio completo: una paginetta HTML
+minima con questi due tag già inseriti, e sotto un'anteprima che la fa
+vedere effettivamente funzionante, con tanto di titolo e pulsante blu
+già stilati da Bootstrap senza aver scritto una riga di CSS custom.
+
+
+---- LA GRIGLIA: IL CONCETTO PIÙ IMPORTANTE ----
+
+Il sistema a colonne di Bootstrap funziona così. Immagina di avere un
+foglio di carta rigato con 12 colonne invisibili. Ogni elemento che metti
+nella pagina può occupare da 1 a 12 di queste colonne.
+
+Vuoi tre elementi affiancati uguali? Ognuno occupa 4 colonne (4+4+4=12).
+Vuoi un contenuto principale e una barra laterale? Il principale occupa 8
+colonne, la barra 4 (8+4=12). La somma deve sempre fare 12.
+
+La struttura che devi rispettare è sempre questa tre livelli:
+  1. container — il "foglio" dove tutto sta dentro
+  2. row — una "riga" del foglio
+  3. col — gli elementi dentro la riga
+
+E poi c'è la parte responsive. Puoi dire: "su mobile questo elemento
+occupa 12 colonne (tutta la riga), ma su desktop ne occupa solo 6".
+Si scrive così: col-12 col-md-6. Il "md" sta per "medium", cioè schermi
+medi come i tablet. Bootstrap ridimensiona tutto da solo.
+
+
+---- LO SPACING: mt, mb, ms, me, px, py ----
+
+Bootstrap ha un sistema per gestire margini e padding senza scrivere CSS.
+Funziona con classi cortissime.
+
+La logica è: prima lettera è "m" (margin) o "p" (padding). Seconda lettera
+è il lato: "t" per top, "b" per bottom, "s" per start cioè sinistra,
+"e" per end cioè destra, "x" per sinistra e destra insieme, "y" per sopra
+e sotto insieme. Poi un numero da 0 a 5.
+
+Esempio concreto: mt-3 significa "margin top di 3 unità". Ogni unità è
+0.25 rem, quindi 3 unità sono circa 12 pixel. px-4 significa "padding
+a destra e a sinistra di 4 unità". Semplice no?
+
+Nella pagina di teoria trovi due esempi affiancati: uno con tre box che
+crescono da px-2/py-1 fino a px-5/py-5, così vedi a occhio la differenza
+tra i numeri; e uno con due box che hanno mb-0 e mb-5, per vedere quanto
+spazio in più lascia sotto un margine grande rispetto a nessun margine.
+
+Nella pratica lo usi tantissimo: metti un mb-3 sotto ogni campo di un form
+per dare respiro, un py-5 a una sezione per farla "respirare" dentro la
+pagina, un mt-4 tra due blocchi di contenuto.
+
+
+---- I PULSANTI ----
+
+I pulsanti Bootstrap sono facilissimi. Ogni pulsante ha due classi:
+"btn" (quella base, obbligatoria) e poi il colore, come "btn-primary"
+(blu), "btn-success" (verde), "btn-danger" (rosso), "btn-warning" (giallo).
+
+Puoi usarli su un elemento button o su un link:
+  <button class="btn btn-primary">Clicca</button>
+  <a class="btn btn-danger">Elimina</a>
+
+Ci sono anche le versioni "outline", cioè senza sfondo e solo con il
+bordo colorato: btn-outline-primary, btn-outline-danger. Utili quando
+vuoi un pulsante meno aggressivo visivamente, magari accanto al
+pulsante principale. E se serve un pulsante più grande o più piccolo,
+aggiungi btn-lg o btn-sm.
+
+
+---- I FORM ----
+
+Scrivere form con Bootstrap è molto più ordinato che farlo a mano.
+La struttura standard per ogni campo è questa:
+
+  <div class="mb-3">
+    <label class="form-label">Nome del campo</label>
+    <input class="form-control" type="text" />
+  </div>
+
+La classe form-control sul campo lo stila completamente: bordo sottile,
+angoli arrotondati, effetto al focus. La classe form-label sulla etichetta
+la mette in grassetto e la posiziona sopra. Il div con mb-3 dà lo spazio
+sotto ogni campo. Per i menu a tendina si usa form-select invece di
+form-control, e per i testi lunghi una textarea con la stessa classe
+form-control. Alla fine basta un normale button con classe btn-primary.
+
+
+---- LE TABELLE ----
+
+Con il CSS normale una tabella HTML è bruttissima. Bootstrap la trasforma
+con una sola classe: aggiungi "table" all'elemento table e già sembra
+professionale. Poi puoi aggiungere modificatori:
+- table-striped: righe alternate chiaro e bianco
+- table-bordered: bordi su tutte le celle
+- table-hover: la riga si evidenzia quando ci passi sopra con il mouse
+
+Sull'intestazione (il tag thead) puoi mettere table-dark per uno sfondo
+scuro elegante. E dentro le celle puoi mettere dei "badge", che sono
+rettangolini colorati con del testo: class="badge bg-success" per uno
+verde, class="badge bg-danger" per uno rosso, class="badge bg-warning"
+per uno giallo. Perfetti per mostrare a colpo d'occhio "Promosso" o
+"Bocciato" in una colonna di stato.
+
+
+---- LE CARD ----
+
+Le card sono contenitori rettangolari con una struttura precisa: un
+header opzionale in cima, e un body nel mezzo che di solito contiene
+un titolo, un testo e magari un pulsante. Si usano ovunque: prodotti
+di un negozio, profili di persone, notizie, materie scolastiche.
+
+La struttura è:
+  <div class="card">
+    <div class="card-header">Titolo</div>
+    <div class="card-body">
+      <h5 class="card-title">Sottotitolo</h5>
+      <p class="card-text">Testo...</p>
+      <a class="btn btn-primary">Vai</a>
+    </div>
+  </div>
+
+Le card si affiancano mettendole dentro la griglia Bootstrap, dentro un
+row con più col. Se hai più card in fila e vuoi che siano tutte della
+stessa altezza anche con contenuto diverso, aggiungi h-100 alla card.
+
+
+---- GLI ALERT ----
+
+Gli alert sono box colorati per mostrare messaggi all'utente.
+Errori, conferme, avvisi, informazioni. La struttura è semplicissima:
+  <div class="alert alert-success" role="alert">
+    Operazione completata!
+  </div>
+
+Cambia solo il modificatore: alert-success (verde), alert-danger (rosso),
+alert-warning (giallo), alert-info (azzurro). L'attributo role="alert"
+si mette per accessibilità, così i lettori di schermo capiscono che
+è un messaggio importante.
+
+
+---- IN SINTESI ----
+
+Bootstrap ti fa risparmiare ore di lavoro. Non devi più inventare come
+collegare una libreria, come fare un pulsante bello o come affiancare
+tre colonne responsive. Tutto è già fatto: devi solo sapere le classi
+giuste. E le classi seguono una logica coerente — una volta che capisci
+il pattern, le indovini quasi da solo.
+
+Il consiglio è questo: quando studi la pagina di teoria, non limitarti
+a leggere il codice. Guarda il blocco scuro con il codice, poi guarda
+subito sotto come viene fuori nel browser, e prova a immaginare perché
+quella classe produce esattamente quel risultato. È così che il pattern
+ti entra in testa davvero.
+
+Il tuo compito adesso è usarle finché non ti vengono automatiche.
+
+================================================================

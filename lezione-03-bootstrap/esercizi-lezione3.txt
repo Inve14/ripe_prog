@@ -1,0 +1,249 @@
+================================================================
+  ESERCIZI — LEZIONE 3: BOOTSTRAP
+  File: esercizi-lezione3.txt
+  Crea i file HTML/CSS da solo, non esiste una soluzione scritta.
+================================================================
+
+
+================================================================
+  LIVELLO FACILE
+================================================================
+
+ESERCIZIO 1 — La griglia a tre colonne
+----------------------------------------
+Consegna:
+  Crea un file "es1.html" con Bootstrap. Nella pagina inserisci un
+  titolo <h1> "La mia griglia" e poi una riga con tre colonne uguali.
+  Ogni colonna deve contenere un titolo <h3> e un breve paragrafo
+  di testo a piacere.
+
+Risultato atteso:
+  Tre riquadri affiancati di uguale larghezza che si vedono bene
+  su un monitor. Su smartphone si sovrappongono uno sotto l'altro.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 2 — I pulsanti Bootstrap
+----------------------------------------
+Consegna:
+  Crea un file "es2.html" con Bootstrap. Nella pagina mostra una
+  serie di pulsanti, almeno sei, con colori diversi. Inserisci anche
+  tre pulsanti "outline" (solo con il bordo). Aggiungi un pulsante
+  grande (btn-lg) e uno piccolo (btn-sm).
+
+Risultato atteso:
+  Una pagina con due righe di pulsanti: una con i pulsanti pieni
+  colorati, una con i pulsanti outline. Sotto, i due pulsanti
+  di dimensioni diverse affiancati.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 3 — Gli alert informativi
+----------------------------------------
+Consegna:
+  Crea un file "es3.html" con Bootstrap. Immagina di essere il
+  gestore di un sito scolastico. Mostra almeno quattro alert:
+  - uno di successo (es. "Compito consegnato correttamente")
+  - uno di errore (es. "Sessione scaduta, effettua di nuovo il login")
+  - uno di avviso (es. "La verifica è tra due giorni, studia!")
+  - uno informativo (es. "Oggi la mensa è chiusa")
+  Ogni alert deve avere un testo significativo, non solo "Alert!".
+
+Risultato atteso:
+  Quattro alert colorati uno sotto l'altro, ognuno con un messaggio
+  che ha senso leggere.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 4 — Lo spacing
+----------------------------------------
+Consegna:
+  Crea un file "es4.html" con Bootstrap. Crea tre riquadri colorati
+  (puoi usare le classi Bootstrap bg-primary, bg-success, bg-warning).
+  Applica a ciascuno uno spacing diverso usando le classi Bootstrap:
+  - Primo riquadro: padding piccolo (p-2)
+  - Secondo riquadro: padding medio (p-4) e margine sopra (mt-4)
+  - Terzo riquadro: padding grande (p-5) e margine sopra (mt-5)
+  Aggiungi un testo dentro ogni riquadro che descrive quale classe
+  di spacing hai usato.
+
+Risultato atteso:
+  Tre riquadri con spazi interni sempre più grandi e spazi
+  esterni sempre più ampi tra di loro.
+
+
+================================================================
+  LIVELLO MEDIO
+================================================================
+
+ESERCIZIO 5 — Il form di registrazione
+----------------------------------------
+Consegna:
+  Crea un file "es5.html" con Bootstrap. Realizza un form di
+  registrazione per un corso online. Il form deve avere:
+  - un campo per il nome
+  - un campo per il cognome
+  - un campo per l'email
+  - un menu a tendina (select) per scegliere il corso tra almeno
+    tre opzioni (es. HTML, CSS, JavaScript)
+  - una textarea per scrivere "Perché vuoi iscriverti"
+  - una checkbox per accettare i termini
+  - un pulsante "Iscriviti" e un pulsante "Annulla"
+  Organizza i campi nome e cognome sulla stessa riga (griglia Bootstrap).
+
+Risultato atteso:
+  Un form ben strutturato con nome e cognome affiancati, gli altri
+  campi uno sotto l'altro, checkbox e due pulsanti in fondo.
+
+Suggerimento Bootstrap:
+  Usa form-label, form-control, form-select, form-check, form-check-input,
+  form-check-label. Per affiancare nome e cognome usa row + col-6.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 6 — La tabella con i badge
+----------------------------------------
+Consegna:
+  Crea un file "es6.html" con Bootstrap. Crea una tabella con
+  i voti di una classe immaginaria. La tabella deve avere almeno
+  sei righe (studenti) e le colonne: Nome, Cognome, Voto,
+  Risultato. Nella colonna "Risultato" usa i badge Bootstrap:
+  - Verde (bg-success) per chi ha preso 6 o più → "Promosso"
+  - Rosso (bg-danger) per chi ha preso meno di 6 → "Bocciato"
+  - Giallo (bg-warning) per chi ha preso esattamente 5 → "Recupero"
+  Aggiungi le classi per rendere la tabella a righe alternate
+  e con bordi visibili.
+
+Risultato atteso:
+  Una tabella con intestazione scura, righe alternate chiaro/bianco,
+  bordi visibili e badge colorati nella colonna del risultato.
+
+Suggerimento Bootstrap:
+  Usa table, table-striped, table-bordered, table-hover sull'elemento
+  <table>. Usa badge bg-success / bg-danger / bg-warning text-dark
+  per i badge dentro le celle.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 7 — La card del profilo
+----------------------------------------
+Consegna:
+  Crea un file "es7.html" con Bootstrap. Crea una singola card che
+  rappresenti il profilo di uno studente immaginario. La card deve avere:
+  - un header con il nome dello studente (usa bg-primary text-white)
+  - un body con: il numero di classe, la sezione, e tre materie
+    preferite scritte come lista
+  - un footer con la scritta "Iscritto dal: settembre 2024"
+  Centra la card nella pagina e dagli una larghezza massima
+  di circa 400px.
+
+Risultato atteso:
+  Una card centrata, visivamente ordinata, con header blu,
+  corpo con informazioni e footer grigio in basso.
+
+Suggerimento Bootstrap:
+  Usa card, card-header, card-body, card-footer.
+  Per centrare usa mx-auto e imposta un max-width nel CSS.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 8 — Il layout a tre card affiancate
+----------------------------------------
+Consegna:
+  Crea un file "es8.html" con Bootstrap. Immagina tre materie
+  scolastiche: Matematica, Storia e Scienze. Per ognuna crea una
+  card che contenga:
+  - un header con il nome della materia colorato in modo diverso
+    per ciascuna (blu, verde, arancione)
+  - un titolo nel body con l'argomento della settimana
+  - un breve testo descrittivo
+  - un pulsante che simula "Vai agli appunti"
+  - un footer con la data della prossima verifica
+  Le tre card devono stare affiancate su desktop e impilate su mobile.
+  Tutte le card devono avere la stessa altezza.
+
+Risultato atteso:
+  Tre card affiancate di uguale altezza, ognuna con header
+  colorato diverso, contenuto e footer ben allineati.
+
+Suggerimento Bootstrap:
+  Usa row g-4, col-12 col-md-4 per le colonne.
+  Aggiungi h-100 alla card per uniformare le altezze.
+
+
+================================================================
+  LIVELLO COMPLETO
+================================================================
+
+ESERCIZIO 9 — Pagina completa: registro di classe
+---------------------------------------------------
+Consegna:
+  Crea un file "es9.html" con Bootstrap. Realizza una pagina
+  completa che simuli un registro digitale scolastico.
+
+  La pagina deve includere TUTTI questi elementi:
+
+  A) INTESTAZIONE
+     - Una barra superiore (navbar o header) con il nome della
+       scuola a sinistra e la data a destra.
+       Sfondo scuro, testo bianco.
+
+  B) LAYOUT A DUE COLONNE (usa la griglia Bootstrap)
+     - Colonna sinistra (col-md-8): contiene la tabella degli studenti
+     - Colonna destra (col-md-4): contiene una card
+
+  C) TABELLA (nella colonna sinistra)
+     - Almeno 8 studenti con le colonne: #, Cognome, Nome, Voto,
+       Presenze, Esito
+     - Nella colonna Esito usa badge Bootstrap:
+       Verde "Promosso" per voto >= 6
+       Rosso "Bocciato" per voto < 6
+       Giallo "Recupero" per voto 5
+     - Intestazione tabella scura, righe alternate, bordi visibili
+
+  D) CARD (nella colonna destra)
+     - Header con il titolo "Statistiche classe"
+     - Body con almeno tre informazioni: numero totale studenti,
+       media voti della classe, percentuale promossi
+     - Footer con la data dell'ultimo aggiornamento
+
+  E) SEZIONE FORM (sotto le due colonne, larghezza piena)
+     - Titolo "Aggiungi studente"
+     - Un form Bootstrap con: nome, cognome, voto (input number),
+       presenza (select: Presente/Assente), un pulsante "Aggiungi"
+     - I quattro campi devono stare su una sola riga (griglia Bootstrap)
+
+  F) ALERT
+     - Sopra la tabella inserisci un alert informativo che dice quanti
+       studenti sono stati promossi su quanti totali
+
+  G) FOOTER
+     - Barra finale a piena larghezza, sfondo scuro, testo centrato,
+       con il nome del registro e l'anno scolastico
+
+  Risultato atteso:
+     Una pagina funzionale e ben strutturata che sembra un vero
+     registro scolastico digitale. Tutti gli elementi devono essere
+     visivamente ordinati e correttamente allineati. Su mobile
+     le due colonne si sovrappongono (prima la tabella, poi la card).
+     Non serve JavaScript: tutti i dati possono essere scritti
+     direttamente nell'HTML.
+
+
+================================================================
+  NOTE FINALI
+================================================================
+
+- Non usare CSS inline (style="...") se puoi evitarlo.
+- Tieni sempre la struttura container > row > col.
+- Non dimenticare il <meta viewport> per il responsive.
+- Usa sempre l'attributo role="alert" sugli elementi alert.
+- Per i form, ogni <input> deve avere un <label> collegato con "for" e "id".
+
+================================================================

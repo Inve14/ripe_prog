@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teoria Bootstrap — Lezione 3</title>
+
+  <!-- Bootstrap 5: CDN ufficiale. Basta questo link e tutte le classi Bootstrap funzionano. -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- CSS personalizzato: sovrascrive o aggiunge stili a Bootstrap -->
+  <link rel="stylesheet" href="teoria-bootstrap.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       INTESTAZIONE PAGINA
+  ====================================================== -->
+  <header class="bg-dark text-white py-4">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Teoria Bootstrap</h1>
+      <p class="lead mb-0">Lezione 3 — Appunti con esempi visivi</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+
+    <!-- ======================================================
+         SEZIONE 1: COME COLLEGARE BOOTSTRAP
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">1. Come collegare Bootstrap</h2>
+
+      <p>
+        Bootstrap è una libreria di CSS (e JavaScript) già pronta.
+        Non serve scaricare né installare nulla sul computer: basta collegare
+        la pagina a un <strong>CDN</strong>, cioè un server esterno che
+        ospita già i file di Bootstrap e li invia al browser quando servono.
+      </p>
+      <p>
+        Servono due righe di codice:
+      </p>
+      <ul>
+        <li>
+          un tag <code>&lt;link&gt;</code> dentro l'<code>&lt;head&gt;</code>,
+          che collega il <strong>CSS</strong> di Bootstrap (dà lo stile a tutto);
+        </li>
+        <li>
+          un tag <code>&lt;script&gt;</code> messo appena prima di
+          <code>&lt;/body&gt;</code>, che collega il <strong>JavaScript</strong>
+          di Bootstrap (serve solo per i componenti interattivi, come menu a
+          tendina o alert chiudibili).
+        </li>
+      </ul>
+
+      <p class="sotto-titolo">Esempio: pagina HTML minima con Bootstrap collegato</p>
+
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="it"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;La mia pagina&lt;/title&gt;
+
+  &lt;!-- Tag link: collega il CSS di Bootstrap --&gt;
+  &lt;link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  &gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="container py-5"&gt;
+    &lt;h1&gt;Ciao Bootstrap!&lt;/h1&gt;
+    &lt;p&gt;Questa pagina usa Bootstrap senza aver scaricato nulla.&lt;/p&gt;
+    &lt;button class="btn btn-primary"&gt;Cliccami&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Tag script: collega il JS di Bootstrap, va prima di </body> --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <span class="risultato-etichetta">Risultato</span>
+      <iframe
+        class="anteprima-pagina"
+        title="Anteprima pagina minima con Bootstrap"
+        srcdoc='&lt;!DOCTYPE html&gt;&lt;html lang="it"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;&lt;/head&gt;&lt;body&gt;&lt;div class="container py-4"&gt;&lt;h1&gt;Ciao Bootstrap!&lt;/h1&gt;&lt;p&gt;Questa pagina usa Bootstrap senza aver scaricato nulla.&lt;/p&gt;&lt;button class="btn btn-primary"&gt;Cliccami&lt;/button&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'
+      ></iframe>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 2: LA GRIGLIA (GRID SYSTEM)
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">2. Griglia — container / row / col</h2>
+
+      <p>
+        Bootstrap divide ogni riga della pagina in <strong>12 colonne</strong>
+        invisibili. Con le classi <code>col-N</code> decidi quante di quelle
+        12 colonne occupa un elemento: <code>col-12</code> occupa tutta la
+        riga, <code>col-6</code> ne occupa metà, <code>col-4</code> un terzo.
+        La somma delle colonne usate in una riga deve fare 12.
+        La struttura è sempre <code>container &gt; row &gt; col</code>.
+      </p>
+
+      <p class="sotto-titolo">Esempio: tre colonne uguali (col-4 + col-4 + col-4)</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;div class="container"&gt;
+  &lt;div class="row g-3"&gt;
+    &lt;div class="col-4"&gt;col-4&lt;/div&gt;
+    &lt;div class="col-4"&gt;col-4&lt;/div&gt;
+    &lt;div class="col-4"&gt;col-4&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="row g-3">
+          <div class="col-4">
+            <div class="demo-col">col-4 (33%)</div>
+          </div>
+          <div class="col-4">
+            <div class="demo-col">col-4 (33%)</div>
+          </div>
+          <div class="col-4">
+            <div class="demo-col">col-4 (33%)</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="sotto-titolo">Esempio: due colonne asimmetriche (col-8 + col-4)</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;div class="row g-3"&gt;
+  &lt;div class="col-8"&gt;contenuto principale&lt;/div&gt;
+  &lt;div class="col-4"&gt;sidebar&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="row g-3">
+          <div class="col-8">
+            <div class="demo-col demo-col--wide">col-8 (contenuto principale)</div>
+          </div>
+          <div class="col-4">
+            <div class="demo-col demo-col--sidebar">col-4 (sidebar)</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="sotto-titolo">Esempio: colonne responsive (col-md-6)</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;!-- col-12 su mobile (piena larghezza), col-md-6 da tablet in su (metà) --&gt;
+&lt;div class="row g-3"&gt;
+  &lt;div class="col-12 col-md-6"&gt;Prima metà&lt;/div&gt;
+  &lt;div class="col-12 col-md-6"&gt;Seconda metà&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="demo-col">Prima metà</div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="demo-col">Seconda metà</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-info mt-4" role="alert">
+        <strong>Ricorda:</strong> la griglia funziona solo dentro un
+        <code>.container</code> (o <code>.container-fluid</code>).
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 3: SPACING (MARGINI E PADDING)
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">3. Spacing — mt / mb / ms / me / px / py</h2>
+
+      <p>
+        Bootstrap gestisce margini e padding con classi brevi, sempre nella
+        stessa forma: <code>{proprietà}{lato}-{valore}</code>.
+      </p>
+      <ul>
+        <li><strong>Proprietà:</strong> <code>m</code> = margin (fuori dal bordo), <code>p</code> = padding (dentro il bordo)</li>
+        <li><strong>Lato:</strong> <code>t</code> = top (sopra), <code>b</code> = bottom (sotto), <code>s</code> = start (sinistra), <code>e</code> = end (destra), <code>x</code> = sinistra+destra, <code>y</code> = sopra+sotto</li>
+        <li><strong>Valore:</strong> un numero da <code>0</code> a <code>5</code>, ognuno pari a 0.25rem in più (0, 4px, 8px, 16px, 24px, 48px)</li>
+      </ul>
+      <p>
+        Esempi: <code>mt-3</code> = margin-top medio, <code>mb-0</code> = nessun
+        margin sotto, <code>ms-auto</code> = spinge l'elemento a destra,
+        <code>px-4</code> = padding sinistra e destra, <code>py-5</code> = padding
+        sopra e sotto molto grande.
+      </p>
+
+      <p class="sotto-titolo">Esempio: differenza tra padding piccolo, medio e grande</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;div class="px-2 py-1"&gt;px-2 py-1 (piccolo)&lt;/div&gt;
+&lt;div class="mt-3 px-4 py-3"&gt;px-4 py-3 (medio)&lt;/div&gt;
+&lt;div class="mt-3 px-5 py-5"&gt;px-5 py-5 (grande)&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="demo-spacing-wrap">
+          <div class="demo-spacing mt-0 mb-0 px-2 py-1">px-2 py-1 (piccolo)</div>
+          <div class="demo-spacing mt-3 mb-0 px-4 py-3">px-4 py-3 (medio)</div>
+          <div class="demo-spacing mt-3 mb-0 px-5 py-5">px-5 py-5 (grande)</div>
+        </div>
+      </div>
+
+      <p class="sotto-titolo">Esempio: margini diversi tra due box (mb-0 vs mb-5)</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;div class="p-2 mb-0"&gt;mb-0 (nessuno spazio sotto)&lt;/div&gt;
+&lt;div class="p-2 mb-5"&gt;mb-5 (molto spazio sotto)&lt;/div&gt;
+&lt;div class="p-2"&gt;box successivo&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="demo-spacing-wrap">
+          <div class="demo-spacing p-2 mb-0">mb-0 (nessuno spazio sotto)</div>
+          <div class="demo-spacing p-2 mb-5">mb-5 (molto spazio sotto)</div>
+          <div class="demo-spacing p-2">box successivo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 4: PULSANTI
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">4. Pulsanti</h2>
+
+      <p>
+        La classe base è <code>btn</code>, obbligatoria su ogni pulsante.
+        Poi si aggiunge un modificatore di colore come <code>btn-primary</code>,
+        oppure una versione "outline" (solo bordo, senza sfondo pieno).
+        Per la dimensione si usa <code>btn-lg</code> (grande) o
+        <code>btn-sm</code> (piccolo).
+      </p>
+
+      <p class="sotto-titolo">Esempio: tutti i tipi di pulsante</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Warning&lt;/button&gt;
+
+&lt;button class="btn btn-outline-primary"&gt;Outline Primary&lt;/button&gt;
+&lt;button class="btn btn-outline-danger"&gt;Outline Danger&lt;/button&gt;
+&lt;button class="btn btn-outline-success"&gt;Outline Success&lt;/button&gt;
+
+&lt;button class="btn btn-primary btn-lg"&gt;Grande (btn-lg)&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Normale&lt;/button&gt;
+&lt;button class="btn btn-primary btn-sm"&gt;Piccolo (btn-sm)&lt;/button&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <h5 class="mt-0">Pulsanti solidi</h5>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-success">Success</button>
+          <button class="btn btn-danger">Danger</button>
+          <button class="btn btn-warning">Warning</button>
+        </div>
+        <h5>Pulsanti outline (solo bordo)</h5>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button class="btn btn-outline-primary">Outline Primary</button>
+          <button class="btn btn-outline-danger">Outline Danger</button>
+          <button class="btn btn-outline-success">Outline Success</button>
+        </div>
+        <h5>Dimensioni</h5>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <button class="btn btn-primary btn-lg">Grande (btn-lg)</button>
+          <button class="btn btn-primary">Normale</button>
+          <button class="btn btn-primary btn-sm">Piccolo (btn-sm)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 5: FORM
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">5. Form</h2>
+
+      <p>
+        Bootstrap stila automaticamente input, label, select e textarea.
+        La struttura tipica di ogni campo è: un contenitore con
+        <code>mb-3</code> (spazio sotto), dentro un'etichetta con
+        <code>form-label</code> e il campo con <code>form-control</code>
+        (o <code>form-select</code> per i menu a tendina).
+      </p>
+
+      <p class="sotto-titolo">Esempio: form completo</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;form&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="nome" class="form-label"&gt;Nome&lt;/label&gt;
+    &lt;input type="text" id="nome" class="form-control" placeholder="Scrivi il tuo nome"&gt;
+  &lt;/div&gt;
+
+  &lt;div class="mb-3"&gt;
+    &lt;label for="classe" class="form-label"&gt;Classe&lt;/label&gt;
+    &lt;select id="classe" class="form-select"&gt;
+      &lt;option value=""&gt;-- Scegli --&lt;/option&gt;
+      &lt;option&gt;Prima&lt;/option&gt;
+      &lt;option&gt;Seconda&lt;/option&gt;
+      &lt;option&gt;Terza&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div class="mb-3"&gt;
+    &lt;label for="note" class="form-label"&gt;Note&lt;/label&gt;
+    &lt;textarea id="note" class="form-control" rows="3"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;button type="submit" class="btn btn-primary"&gt;Invia&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <form>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" id="nome" class="form-control" placeholder="Scrivi il tuo nome" />
+          </div>
+          <div class="mb-3">
+            <label for="classe" class="form-label">Classe</label>
+            <select id="classe" class="form-select">
+              <option value="">-- Scegli --</option>
+              <option>Prima</option>
+              <option>Seconda</option>
+              <option>Terza</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="note" class="form-label">Note</label>
+            <textarea id="note" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Invia</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 6: TABELLA
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">6. Tabella</h2>
+
+      <p>
+        Aggiungendo la classe <code>table</code> a un elemento
+        <code>&lt;table&gt;</code> si ottiene subito uno stile pulito.
+        Si possono combinare più classi: <code>table-striped</code> (righe
+        alternate colorate), <code>table-hover</code> (la riga si evidenzia
+        al passaggio del mouse), <code>table-bordered</code> (bordi su tutte
+        le celle) e <code>table-dark</code> sull'intestazione per un tema
+        scuro. Nelle celle si possono inserire dei <code>badge</code>
+        colorati per mostrare uno stato a colpo d'occhio.
+      </p>
+
+      <p class="sotto-titolo">Esempio: tabella con badge di stato</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;table class="table table-striped table-bordered table-hover"&gt;
+  &lt;thead class="table-dark"&gt;
+    &lt;tr&gt;
+      &lt;th&gt;#&lt;/th&gt;
+      &lt;th&gt;Nome&lt;/th&gt;
+      &lt;th&gt;Voto&lt;/th&gt;
+      &lt;th&gt;Stato&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;&lt;span class="badge bg-success"&gt;Promossa&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Bruno&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;&lt;span class="badge bg-danger"&gt;Bocciato&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Clara&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;&lt;span class="badge bg-warning text-dark"&gt;Sospesa&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Voto</th>
+                <th>Stato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Alice</td>
+                <td>8</td>
+                <td><span class="badge bg-success">Promossa</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Bruno</td>
+                <td>4</td>
+                <td><span class="badge bg-danger">Bocciato</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Clara</td>
+                <td>5</td>
+                <td><span class="badge bg-warning text-dark">Sospesa</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 7: CARD
+    ====================================================== -->
+    <section class="mb-5">
+      <h2 class="sezione-titolo">7. Card</h2>
+
+      <p>
+        Una card è un riquadro con ombra leggera e una struttura fissa:
+        <code>card-header</code> (intestazione, opzionale),
+        <code>card-body</code> (contenuto principale) che di solito contiene
+        un <code>card-title</code> e un <code>card-text</code>, e
+        <code>card-footer</code> (piè di pagina, opzionale). Si usano per
+        mostrare contenuti in modo ordinato, spesso affiancate in una griglia.
+      </p>
+
+      <p class="sotto-titolo">Esempio: card con header, titolo, testo e pulsante</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;div class="card" style="width: 18rem;"&gt;
+  &lt;div class="card-header"&gt;
+    Header della card
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Titolo della card&lt;/h5&gt;
+    &lt;p class="card-text"&gt;Un breve testo che descrive il contenuto della card.&lt;/p&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;Vai&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            Header della card
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Titolo della card</h5>
+            <p class="card-text">Un breve testo che descrive il contenuto della card.</p>
+            <a href="#" class="btn btn-primary">Vai</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SEZIONE 8: ALERT
+    ====================================================== -->
+    <section class="mb-0">
+      <h2 class="sezione-titolo">8. Alert</h2>
+
+      <p>
+        Gli alert sono messaggi colorati per avvisare l'utente. Basta la
+        classe <code>alert</code> più un modificatore di colore come
+        <code>alert-success</code>, <code>alert-danger</code>,
+        <code>alert-warning</code> o <code>alert-info</code>.
+      </p>
+
+      <p class="sotto-titolo">Esempio: i quattro alert più usati</p>
+      <div class="editor-finestra">
+        <div class="editor-barra">
+          <span class="editor-pallino editor-pallino--rosso"></span>
+          <span class="editor-pallino editor-pallino--giallo"></span>
+          <span class="editor-pallino editor-pallino--verde"></span>
+        </div>
+        <pre class="editor-codice"><code>&lt;div class="alert alert-success"&gt;
+  &lt;strong&gt;Success:&lt;/strong&gt; operazione completata con successo!
+&lt;/div&gt;
+&lt;div class="alert alert-danger"&gt;
+  &lt;strong&gt;Danger:&lt;/strong&gt; errore, qualcosa è andato storto.
+&lt;/div&gt;
+&lt;div class="alert alert-warning"&gt;
+  &lt;strong&gt;Warning:&lt;/strong&gt; attenzione, controlla prima di continuare.
+&lt;/div&gt;
+&lt;div class="alert alert-info"&gt;
+  &lt;strong&gt;Info:&lt;/strong&gt; hai un nuovo messaggio.
+&lt;/div&gt;</code></pre>
+      </div>
+      <span class="risultato-etichetta">Risultato</span>
+      <div class="risultato-box mb-0">
+        <div class="alert alert-success" role="alert">
+          <strong>Success:</strong> operazione completata con successo!
+        </div>
+        <div class="alert alert-danger" role="alert">
+          <strong>Danger:</strong> errore, qualcosa è andato storto.
+        </div>
+        <div class="alert alert-warning" role="alert">
+          <strong>Warning:</strong> attenzione, controlla prima di continuare.
+        </div>
+        <div class="alert alert-info mb-0" role="alert">
+          <strong>Info:</strong> hai un nuovo messaggio.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-3">
+    <small>Lezione 3 — Bootstrap | Appunti di teoria</small>
+  </footer>
+
+</body>
+</html>
