@@ -1,0 +1,40 @@
+<!--
+Pagina di login / registrazione
+
+Un form centrato verticalmente e orizzontalmente nella pagina.
+Inserisci campi “Email”, “Password”, un checkbox “Ricordami”, pulsante “Entra”.
+Aggiungi un link “Hai dimenticato la password?” sotto il form.
+Usare classi per layout responsivo: su dispositivi stretti diminuisci larghezza del form.
+</head>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/registrazione</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="d-flex align-items-center justify-content-center min-vh-100">
+        <div class="col-11 col-sm-8 col-md-5">
+            <div>
+                <label>Email</label>
+                <input type="email" class="form-control">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <div>
+                <label for="ricordami">RICORDAMI</label>
+                <input type="checkbox" name="check" id="chek">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="#">password dimenticata?</a>
+        </div>
+    </div>
+</body>
+</html>
