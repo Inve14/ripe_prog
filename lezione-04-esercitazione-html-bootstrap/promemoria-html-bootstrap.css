@@ -1,0 +1,173 @@
+/* =========================================================
+   promemoria-html-bootstrap.css
+   Foglio di riferimento rapido: niente Bootstrap qui dentro,
+   solo CSS scritto a mano per tenere la pagina leggera e
+   consultabile anche senza connessione internet.
+========================================================= */
+
+:root {
+  --html-color: #e34c26;      /* arancione HTML5 */
+  --bootstrap-color: #7952b3; /* viola ufficiale Bootstrap */
+  --testo: #212529;
+  --testo-secondario: #495057;
+  --sfondo-codice: #eef0f2;
+  --bordo: #dee2e6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 1.5rem 3rem;
+  font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+  color: var(--testo);
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+/* --- Intestazione pagina --- */
+.page-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0 1rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin-bottom: 0.4rem;
+  font-size: 1.8rem;
+}
+
+.page-header p {
+  color: var(--testo-secondario);
+  margin-top: 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- Sezioni principali --- */
+.section {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.section-html h2 {
+  background-color: var(--html-color);
+}
+
+.section-bootstrap h2 {
+  background-color: var(--bootstrap-color);
+}
+
+.section h3 {
+  font-size: 1.05rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.7rem;
+  color: var(--testo-secondario);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.section-html h3 {
+  border-left: 4px solid var(--html-color);
+  padding-left: 8px;
+}
+
+.section-bootstrap h3 {
+  border-left: 4px solid var(--bootstrap-color);
+  padding-left: 8px;
+}
+
+/* --- Griglia di voci (tag / classi + spiegazione) --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.7rem;
+}
+
+.item {
+  border: 1px solid var(--bordo);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  background-color: #fafafa;
+}
+
+.item code {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+}
+
+.item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--testo-secondario);
+}
+
+/* --- Testo e codice inline --- */
+code {
+  font-family: "SFMono-Regular", Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  background-color: var(--sfondo-codice);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: #b3261e;
+}
+
+.note {
+  font-size: 0.95rem;
+}
+
+/* --- Blocchi di codice multi-riga --- */
+pre {
+  background-color: var(--sfondo-codice);
+  border: 1px solid var(--bordo);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  margin: 0.4rem 0 1rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--testo);
+  font-size: 0.82rem;
+}
+
+/* --- Tabella breakpoint --- */
+.ref-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.ref-table th,
+.ref-table td {
+  border: 1px solid var(--bordo);
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+}
+
+.ref-table thead {
+  background-color: var(--bootstrap-color);
+  color: #ffffff;
+}
+
+.ref-table tbody tr:nth-child(even) {
+  background-color: #f6f4fa;
+}

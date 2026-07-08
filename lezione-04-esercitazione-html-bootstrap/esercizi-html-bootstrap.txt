@@ -1,0 +1,217 @@
+================================================================
+  ESERCIZI — LEZIONE 4: ESERCITAZIONE HTML + BOOTSTRAP
+  File: esercizi-html-bootstrap.txt
+  Crea i file HTML da solo, non esiste una soluzione scritta.
+  Usa il file "promemoria-html-bootstrap.html" come riferimento
+  rapido per le classi che non ricordi.
+================================================================
+
+
+================================================================
+  LIVELLO FACILE
+================================================================
+
+ESERCIZIO 1 — Titolo, paragrafi, lista e link
+----------------------------------------
+Consegna:
+  Crea un file "es1.html". Inserisci un titolo <h1> con l'argomento
+  che hai scelto (es. un tuo hobby, uno sport, una materia che ti
+  piace). Sotto il titolo scrivi due paragrafi <p> che lo descrivono.
+  Aggiungi poi una lista (<ul> o <ol>) con almeno 4 elementi legati
+  all'argomento. Infine inserisci due link <a>: uno verso un sito
+  esterno a tua scelta che si apra in una nuova scheda, e uno verso
+  una pagina interna immaginaria "dettagli.html".
+
+Risultato atteso:
+  Una pagina con titolo ben visibile, due paragrafi di testo leggibile,
+  una lista puntata o numerata e due link cliccabili, di cui uno si
+  apre in una scheda nuova.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 2 — Tabella Bootstrap con thead e tbody
+----------------------------------------
+Consegna:
+  Crea un file "es2.html" con Bootstrap collegato da CDN. Crea una
+  tabella con l'intestazione (<thead>) che contiene le colonne:
+  Materia, Ore settimanali, Docente. Nel corpo (<tbody>) inserisci
+  almeno 5 righe con materie scolastiche a tua scelta. Applica le
+  classi Bootstrap per rendere la tabella più leggibile (righe
+  alternate e bordi visibili).
+
+Risultato atteso:
+  Una tabella con intestazione ben distinta dal corpo, righe alternate
+  chiaro/bianco, bordi visibili e dati allineati in colonne.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 3 — Tre alert Bootstrap
+----------------------------------------
+Consegna:
+  Crea un file "es3.html" con Bootstrap. Inserisci tre alert Bootstrap
+  di colore diverso, ognuno con un messaggio legato alla vita
+  scolastica, ad esempio:
+  - uno verde di successo (es. "Verifica superata con 7")
+  - uno rosso di errore (es. "Compito non consegnato in tempo")
+  - uno giallo di avviso (es. "Ricordati il libro di storia domani")
+
+Risultato atteso:
+  Tre riquadri colorati uno sotto l'altro, ognuno con un messaggio
+  chiaro, colori diversi che fanno capire subito il tipo di messaggio.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 4 — Form semplice
+----------------------------------------
+Consegna:
+  Crea un file "es4.html" con Bootstrap. Crea un form con due campi:
+  uno per il nome (input di tipo text) e uno per l'email (input di
+  tipo email), ciascuno con la sua etichetta (<label>) collegata
+  tramite "for" e "id". Aggiungi in fondo un pulsante "Invia".
+
+Risultato atteso:
+  Un form verticale con due campi ben etichettati e un pulsante
+  colorato Bootstrap sotto di essi.
+
+
+================================================================
+  LIVELLO MEDIO
+================================================================
+
+ESERCIZIO 5 — Form Bootstrap completo
+----------------------------------------
+Consegna:
+  Crea un file "es5.html" con Bootstrap. Realizza un form di
+  iscrizione con questi campi:
+  - nome
+  - cognome
+  - email
+  - data di nascita (input di tipo date)
+  - un menu a tendina (select) con almeno 3 opzioni, ad esempio la
+    scelta di un corso pomeridiano (es. Teatro, Musica, Sport)
+  - una textarea per un breve messaggio di presentazione
+  - una checkbox per accettare il regolamento del corso
+  - un pulsante "Iscriviti"
+
+Risultato atteso:
+  Un form completo con tutti i campi elencati, ognuno con etichetta
+  associata, organizzato in modo ordinato dall'alto verso il basso.
+
+Suggerimento Bootstrap:
+  Usa form-label, form-control, form-select, form-check,
+  form-check-input, form-check-label.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 6 — Griglia a 3 colonne con card
+----------------------------------------
+Consegna:
+  Crea un file "es6.html" con Bootstrap. Crea una riga con tre
+  colonne uguali. In ognuna inserisci una card che rappresenta un
+  hobby o un'attività (es. sport, musica, lettura, videogiochi).
+  Ogni card deve avere un titolo, un breve testo descrittivo e un
+  pulsante (es. "Scopri di più").
+
+Risultato atteso:
+  Tre card affiancate di uguale larghezza su desktop, che si
+  impilano una sotto l'altra su smartphone, ognuna con titolo, testo
+  e pulsante ben visibili.
+
+Suggerimento Bootstrap:
+  Usa row, col-md-4 per le colonne e card, card-body, card-title,
+  card-text per le card.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 7 — Tabella con badge colorati
+----------------------------------------
+Consegna:
+  Crea un file "es7.html" con Bootstrap. Crea una tabella con almeno
+  6 studenti immaginari e le colonne: Nome, Cognome, Voto, Esito.
+  Nella colonna Esito usa un badge Bootstrap:
+  - verde (bg-success) con scritta "Promosso" per voto >= 6
+  - rosso (bg-danger) con scritta "Bocciato" per voto < 6
+
+Risultato atteso:
+  Una tabella leggibile con righe alternate e badge colorati coerenti
+  con il voto di ogni studente.
+
+Suggerimento Bootstrap:
+  Usa table, table-striped, table-bordered sulla tabella, e
+  badge bg-success / badge bg-danger dentro le celle.
+
+
+----------------------------------------------------------------
+
+ESERCIZIO 8 — Layout a due colonne: contenuto + sidebar
+----------------------------------------
+Consegna:
+  Crea un file "es8.html" con Bootstrap. Crea una pagina con una
+  colonna principale più larga (es. col-md-8) che contiene un titolo
+  e due paragrafi di un ipotetico articolo scolastico, e una colonna
+  laterale più stretta (es. col-md-4) con un titolo "Link utili" e
+  una lista di almeno 4 link a tema scuola.
+
+Risultato atteso:
+  Due colonne affiancate su desktop, con il contenuto principale
+  più largo della sidebar; su smartphone le colonne si impilano
+  (prima il contenuto, poi la sidebar).
+
+
+================================================================
+  LIVELLO COMPLETO
+================================================================
+
+ESERCIZIO 9 — Pagina completa: mini portale di classe
+---------------------------------------------------
+Consegna:
+  Crea un file "es9.html" con Bootstrap che unisca tutto quello
+  visto finora. La pagina deve includere:
+
+  A) ALERT
+     - In cima un alert informativo con un messaggio di benvenuto
+       (es. "Benvenuto nel portale della classe 3ª B")
+
+  B) LAYOUT A DUE COLONNE (griglia Bootstrap)
+     - Colonna principale (col-md-8): una tabella con almeno 6
+       studenti, colonne Nome, Cognome, Voto, Esito, con badge
+       verde/rosso come nell'esercizio 7
+     - Colonna laterale (col-md-4): una card "Riepilogo classe" con
+       almeno 2 informazioni (es. numero studenti, media voti)
+
+  C) TRE CARD AFFIANCATE (sotto le due colonne)
+     - Tre card per tre materie scolastiche a scelta, ognuna con
+       titolo, breve testo e un pulsante
+
+  D) FORM (in fondo alla pagina)
+     - Titolo "Aggiungi studente"
+     - Un form con almeno 4 campi (es. nome, cognome, voto, select
+       per la classe) e un pulsante "Aggiungi"
+
+Risultato atteso:
+  Una pagina ordinata che sembra un piccolo portale scolastico, con
+  tutti gli elementi ben allineati. Su smartphone le due colonne del
+  punto B si impilano e le tre card del punto C si mettono una sotto
+  l'altra. Non serve JavaScript: tutti i dati possono essere scritti
+  direttamente nell'HTML.
+
+
+================================================================
+  NOTE FINALI
+================================================================
+
+- Non usare CSS inline (style="...") se puoi evitarlo.
+- Tieni sempre la struttura container > row > col.
+- Non dimenticare il <meta viewport> per il responsive.
+- Usa sempre l'attributo role="alert" sugli elementi alert.
+- Per i form, ogni <input> deve avere un <label> collegato con
+  "for" e "id".
+- Se non ricordi una classe Bootstrap, cerca prima nel file
+  "promemoria-html-bootstrap.html".
+
+================================================================
