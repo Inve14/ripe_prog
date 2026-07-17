@@ -178,7 +178,7 @@ console.log(media);
 // --- Esercizio 8 ---
 // Consegna: dato il dizionario {cognome: voto} qui sotto, stampa
 // ogni coppia nel formato "cognome → voto".
-// Indizio: usa un ciclo for...in.
+// Indizio: usa un ciclo for.
 const votiPerCognomeEs8 = {
     Rossi: 8,
     Bianchi: 6,
@@ -186,6 +186,8 @@ const votiPerCognomeEs8 = {
 };
 
 // scrivi qui il tuo codice
+for(let = 1; )
+
 
 
 
