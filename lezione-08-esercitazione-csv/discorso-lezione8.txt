@@ -1,0 +1,11 @@
+Ciao a tutti, bentornati! Oggi la lezione è quasi tutta pratica: dopo aver visto la teoria dei CSV la volta scorsa, adesso mettiamo le mani in pasta con nove esercizi, dal più semplice al più completo.
+
+Prima però facciamo un ripasso veloce, giusto due minuti, perché la teoria vista è ancora fresca. Ricordatevi le quattro righe che aprono sempre un esercizio sui CSV: trim() per togliere gli spazi vuoti a inizio e fine stringa, replaceAll(' ', '') per togliere gli spazi in mezzo, split('\n') per separare le righe, e shift() per staccare l'header dal resto dei dati. Da lì, con un map() e un forEach() sulle colonne, costruite l'array di dizionari su cui poi lavorate davvero. E quando dovete generare un CSV in uscita, lo schema è sempre lo stesso al contrario: join(',') per le righe, join('\n') per unirle tutte.
+
+Ora agli esercizi. I primi quattro sono facili e vi do un suggerimento per ciascuno, perché voglio che vi concentriate sulla logica, non sul bloccarvi per un dettaglio. Nel primo dovete estrarre solo i nomi degli studenti: qui il pezzo importante è il map() dopo il parsing, che vi lascia solo il campo che vi serve. Nel secondo cercate il prodotto più caro: attenzione, i prezzi arrivano come stringhe, vanno convertiti in numero prima di confrontarli, altrimenti il confronto è sbagliato. Nel terzo contate i promossi con un filter() più .length. Nel quarto costruite le iniziali prendendo il primo carattere di nome e cognome con la notazione [0].
+
+Poi si sale di livello: quattro esercizi medi, con solo un piccolo indizio. Qui trovate la media dei voti, il raggruppamento per categoria in un dizionario, una classifica ordinata con sort(), e le ore libere di un laboratorio partendo da valori true/false. In ognuno di questi il punto delicato è sempre lo stesso: i dati che arrivano dal CSV sono testo, e dovete decidere voi come trasformarli in numeri, booleani o strutture più comode prima di ragionarci sopra.
+
+Infine l'ultimo esercizio, quello completo, senza nessun aiuto: mettete insieme tutto quello che avete imparato finora per generare un CSV di pagelle con media, status e materie insufficienti.
+
+Prendetevela con calma, provate a ragionare passo per passo prima di scrivere codice, e se vi bloccate le soluzioni ci sono, ma provateci prima da soli: è lì che si impara davvero. Buon lavoro!

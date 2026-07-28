@@ -63,7 +63,7 @@ const colonne = header_pagelle.split(",");
 const studenti = righe_pagelle.map((riga) => {
     const valori = riga.split(",");
     const dizionario = {};
-
+    
     colonne.forEach((nomecolonna, i) => {
         dizionario[nomecolonna]=valori[i];
     });
