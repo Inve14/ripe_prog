@@ -1,0 +1,53 @@
+<!--
+  SOL-10 - Gestione prodotti con ricerca
+  Form con nome prodotto e prezzo che aggiunge righe a una tabella. Un
+  input di ricerca filtra i prodotti in tempo reale per nome. Il totale dei
+  prodotti mostrati si aggiorna insieme al filtro.
+  Concetti: filter su array, oninput per la ricerca, render() con dati filtrati
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SOL-10 - Gestione prodotti con ricerca</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5" style="max-width: 700px;">
+    <h1 class="mb-4">Gestione prodotti</h1>
+
+    <form id="formProdotto" class="row g-2 mb-4">
+      <div class="col">
+        <label for="inputNome" class="form-label">Nome prodotto</label>
+        <input type="text" id="inputNome" class="form-control" required>
+      </div>
+      <div class="col">
+        <label for="inputPrezzo" class="form-label">Prezzo (€)</label>
+        <input type="number" id="inputPrezzo" class="form-control" step="0.01" required>
+      </div>
+      <div class="col-auto align-self-end">
+        <button type="submit" class="btn btn-primary">Aggiungi</button>
+      </div>
+    </form>
+
+    <div class="mb-3">
+      <label for="inputRicerca" class="form-label">Cerca per nome</label>
+      <input type="text" id="inputRicerca" class="form-control" placeholder="Scrivi per filtrare...">
+    </div>
+
+    <table class="table table-bordered align-middle">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Prezzo</th>
+        </tr>
+      </thead>
+      <tbody id="corpoTabella"></tbody>
+    </table>
+
+    <div id="totale" class="alert alert-secondary">Totale: € 0.00</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

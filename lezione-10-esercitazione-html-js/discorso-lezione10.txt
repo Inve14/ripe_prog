@@ -1,0 +1,27 @@
+Ragazzi, oggi tocca a voi. La lezione scorsa abbiamo visto insieme cinque esempi per collegare JavaScript alla pagina: oggi vi lascio dieci esercizi da fare da soli, in ordine di difficoltà crescente, per allenare gli stessi ingredienti.
+
+Ripasso veloce. Ogni interazione segue il pattern Evento-Azione-Reazione: qualcosa succede, di solito un click o un submit; il codice aggiorna i dati veri, che stanno sempre in variabili o array JavaScript, mai nell'HTML; e la pagina viene ridisegnata per mostrare il nuovo stato. Quando i dati sono una collezione che cambia nel tempo, uso render(): una funzione che ricostruisce da zero il pezzo di pagina interessato leggendo l'array aggiornato, invece di aggiungere e togliere pezzi a mano. Se vi bloccate, chiedetevi sempre: qual è l'evento, qual è l'azione, qual è la reazione?
+
+Vediamo cosa vi aspetta.
+
+ES-01, saluto personalizzato: un solo evento e una sola scrittura con innerHTML. Serve a riprendere confidenza con querySelector e .value.
+
+ES-02, cambia colore: tre pulsanti, tre eventi quasi identici. Concetto centrale: style.backgroundColor per cambiare un aspetto visivo da JavaScript.
+
+ES-03, contatore: torna la variabile di stato esterna alla funzione. Il punto vero da allenare è il controllo con if PRIMA di decrementare, non dopo.
+
+ES-04, caratteri in tempo reale: primo incontro con oninput al posto di onclick. Nessun pulsante: l'evento scatta ad ogni tasto, e .value.length dà la lunghezza del testo.
+
+ES-05, calcolatrice semplice: rivediamo parseFloat e isNaN, con quattro operazioni da gestire in if/else. Il punto delicato è pensare ai casi limite: numeri mancanti e divisione per zero.
+
+ES-06, lista della spesa: primo esercizio vero con render(). L'array è la fonte di verità, la lista HTML è solo la sua fotografia: ogni volta che l'array cambia, richiamate render().
+
+ES-07, maggiore e minore: mettete i valori in un array e usate sort per ordinarli, così maggiore e minore sono il primo e l'ultimo elemento. Occhio ai campi vuoti: parseFloat(...) || 0 vi salva.
+
+ES-08, tabella studenti: array di dizionari e render() completo, come nell'esempio 5 della lezione scorsa, ma stavolta scritto da voi, badge Promosso/Bocciato compreso.
+
+ES-09, simulatore PIN: il primo esercizio con più fasi. Il programma ha uno stato che cambia nel tempo, prima si imposta il PIN poi lo si verifica, e bisogna disabilitare gli input a fine gioco. Pensate alle fasi prima di scrivere codice.
+
+ES-10, gestione prodotti con ricerca: l'esercizio più completo. Array di dizionari, render() con filter per la ricerca in tempo reale, e un totale che si aggiorna col filtro. Se avete seguito bene i precedenti, qui trovate solo un assemblaggio di cose già viste.
+
+Un ultimo consiglio: nella cartella esercizi trovate già l'HTML pronto e i querySelector scritti, concentratevi sulla logica. Provate prima da soli, e solo dopo sbirciate la cartella soluzioni. Buon lavoro, e non abbiate paura di sbagliare: è così che si impara.
