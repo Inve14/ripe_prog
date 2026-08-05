@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Esempio prof - Meteo (Open-Meteo)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container py-4">
+
+  <h1>Esempio prof — Meteo</h1>
+  <p>
+    Inserisci latitudine e longitudine e scopri il meteo attuale in quel punto,
+    usando l'API gratuita <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a>.
+    (Suggerimento: Roma è circa <code>41.9</code>, <code>12.5</code>)
+  </p>
+
+  <div class="row g-2 mb-3">
+    <div class="col-auto">
+      <label for="inputLatitudine" class="col-form-label">Latitudine</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputLatitudine" class="form-control" placeholder="es. 41.9">
+    </div>
+    <div class="col-auto">
+      <label for="inputLongitudine" class="col-form-label">Longitudine</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputLongitudine" class="form-control" placeholder="es. 12.5">
+    </div>
+    <div class="col-auto">
+      <button type="button" id="btnCercaMeteo" class="btn btn-primary">Cerca meteo</button>
+    </div>
+  </div>
+
+  <div id="risultatoMeteo" class="fs-5"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

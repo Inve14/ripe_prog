@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Esempio prof - Cache Remota</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container py-4">
+
+  <h1>Esempio prof — Cache Remota</h1>
+  <p>
+    Il servizio "Cache Remota" del prof permette di salvare (POST) e leggere (POST)
+    una coppia chiave/valore su un server remoto, così il dato resta disponibile
+    anche riaprendo la pagina o cambiando browser.
+  </p>
+
+  <h2 class="h4 mt-4">FORM 1 — Salva un valore</h2>
+  <div class="row g-2 mb-2">
+    <div class="col-auto">
+      <label for="inputChiaveSet" class="col-form-label">Chiave</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputChiaveSet" class="form-control" placeholder="es. colorePreferito">
+    </div>
+    <div class="col-auto">
+      <label for="inputValoreSet" class="col-form-label">Valore</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputValoreSet" class="form-control" placeholder="es. blu">
+    </div>
+    <div class="col-auto">
+      <button type="button" id="btnSalva" class="btn btn-primary">Salva</button>
+    </div>
+  </div>
+  <div id="esitoSalva" class="mb-4"></div>
+
+  <h2 class="h4 mt-4">FORM 2 — Leggi un valore</h2>
+  <div class="row g-2 mb-2">
+    <div class="col-auto">
+      <label for="inputChiaveGet" class="col-form-label">Chiave</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputChiaveGet" class="form-control" placeholder="es. colorePreferito">
+    </div>
+    <div class="col-auto">
+      <button type="button" id="btnLeggi" class="btn btn-secondary">Leggi</button>
+    </div>
+  </div>
+  <div id="esitoLeggi" class="fs-5"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

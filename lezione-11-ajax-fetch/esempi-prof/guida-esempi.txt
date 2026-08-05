@@ -1,0 +1,47 @@
+GUIDA PER IL TUTOR — come usare gli esempi in classe
+=====================================================
+
+ES-COCKTAIL
+-----------
+Prima: apri direttamente nel browser (o con un'estensione tipo JSONView)
+la URL https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=vodka
+e fai vedere agli studenti il JSON grezzo. Fai notare che è un oggetto
+con UNA sola chiave, "drinks", che contiene un array. Prova anche con
+un ingrediente inventato (es. "xyz") per mostrare dal vivo che "drinks"
+diventa null, non un array vuoto.
+Poi guarda il codice: mostra come URL_TEMPLATE + .replace() costruisce
+la URL vera partendo dall'input dell'utente, ed evidenzia i due await
+(fetch e poi .json()) spiegando che sono due passaggi distinti e
+separati nel tempo.
+Parte più importante da capire: la riga "data.drinks || []" — è il
+punto in cui uno studente da solo probabilmente scriverebbe codice che
+va in errore. Collegalo al test fatto all'inizio con l'ingrediente
+inventato.
+
+ES-METEO
+--------
+Prima: apri la URL di Open-Meteo con lat/lon di Roma nel browser e fai
+notare che, a differenza della CocktailDB, qui i dati utili non sono
+in cima all'oggetto ma dentro un sotto-oggetto "current_weather".
+Poi guarda il codice: mostra i due .replace() concatenati (uno per la
+latitudine, uno per la longitudine) e sottolinea che ogni .replace()
+lavora sul risultato del precedente.
+Parte più importante da capire: la "discesa" nel JSON annidato
+(data.current_weather.temperature). Fai provare agli studenti a
+scrivere semplicemente data.temperature per farli sbagliare e capire
+perché serve console.log(data) PRIMA di scrivere il codice che legge i
+valori, non dopo.
+
+ES-CACHE-REMOTA
+---------------
+Prima: non c'è un JSON da vedere subito nel browser (è una POST, non
+si può aprire come URL), quindi qui conviene partire direttamente dal
+codice.
+Guarda il codice: confronta fianco a fianco questo esempio con
+es-cocktail per far vedere la differenza GET vs POST — qui fetch ha un
+secondo parametro con method, headers e body.
+Parte più importante da capire: perché il body deve essere una
+stringa (JSON.stringify) e la distinzione tra l'header "key" (il
+TOKEN, chi sono io) e il campo "key" dentro il body (il nome sotto cui
+salvo il dato). È il punto in cui gli studenti confondono più
+facilmente i due concetti.

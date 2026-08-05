@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini pratica - Meteo con fetch</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container py-4">
+
+  <h1>Mini pratica — Meteo con fetch</h1>
+
+  <!--
+    CONSEGNA
+    ============================================================
+    Devi completare "mini-pratica-consegna.js" in modo che:
+
+    1. Quando l'utente scrive una latitudine e una longitudine e
+       clicca su "Cerca meteo", il codice faccia una richiesta
+       GET (con fetch) a questa API pubblica gratuita:
+
+         https://api.open-meteo.com/v1/forecast?latitude=LAT&longitude=LON&current_weather=true
+
+       dove LAT e LON vanno sostituiti con i valori scritti
+       dall'utente. Usa un URL TEMPLATE con .replace(), come
+       visto nell'esempio-02-url-template.
+
+    2. Devi usare i DUE await obbligatori:
+       - uno per aspettare la risposta di fetch()
+       - uno per aspettare response.json()
+
+    3. Con console.log(data) guarda come è fatto il JSON di
+       risposta PRIMA di scrivere il codice che lo usa: dentro
+       troverai un oggetto "current_weather" con dentro la
+       temperatura e la velocità del vento.
+
+    4. Infine devi scrivere nel div con id "risultato" (già
+       presente qui sotto) un testo che mostri:
+       - la temperatura (in °C)
+       - la velocità del vento (in km/h)
+
+    Gli elementi HTML e i loro id sono già pronti, così come i
+    "binding" (querySelector) nel file JS: devi solo scrivere il
+    corpo della funzione onclick del pulsante.
+
+    Suggerimento: puoi provare con Roma (latitude=41.9, longitude=12.5)
+    o con qualunque altra città di cui conosci le coordinate.
+  -->
+
+  <div class="row g-2 mb-3">
+    <div class="col-auto">
+      <label for="inputLat" class="col-form-label">Latitudine</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputLat" class="form-control" placeholder="es. 41.9">
+    </div>
+    <div class="col-auto">
+      <label for="inputLon" class="col-form-label">Longitudine</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputLon" class="form-control" placeholder="es. 12.5">
+    </div>
+    <div class="col-auto">
+      <button type="button" id="btnCerca" class="btn btn-primary">Cerca meteo</button>
+    </div>
+  </div>
+
+  <div id="risultato" class="fs-4"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="mini-pratica-consegna.js"></script>
+</body>
+</html>
