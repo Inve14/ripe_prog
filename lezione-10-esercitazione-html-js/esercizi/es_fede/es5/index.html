@@ -1,0 +1,36 @@
+<!--
+  ES-05 - Calcolatrice semplice
+  Consegna: due input numerici, un select con le operazioni +/-/*/÷ e un
+  pulsante "Calcola". Mostra il risultato, gestendo i dati non validi.
+  Concetti: parseFloat, if/else sull'operazione, isNaN
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcolatrice</title>
+</head>
+
+<body>
+  <div>
+    <input type="number" id="num1"></input>
+    <input type="number" id="num2"></input>
+  </div>
+  <div>
+    <select id="operazione">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+
+    </select>
+    <button id="button">calcola</button>
+
+  </div>
+  <div id="output"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
