@@ -1,0 +1,41 @@
+<!--
+  ES-09 - Progetto completo: salva film preferiti
+  Consegna: pagina con due sezioni.
+  - In alto: pulsante "Carica film" che scarica i film di tendenza da TMDB
+    (come ES-08) e li mostra in card, ognuna con un pulsante "Salva nei
+    preferiti".
+  - In basso: lista dei film salvati, caricata dalla cache remota del prof
+    al caricamento della pagina (senza bisogno di cliccare nulla).
+  Al click su "Salva nei preferiti": il film viene aggiunto all'array dei
+  preferiti, l'array viene salvato in cache (con JSON.stringify), e la
+  lista in basso viene aggiornata.
+  Concetti: tutto insieme - fetch GET film, fetch POST cache remota,
+  JSON.stringify/parse, render()
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>ES-09 - Film preferiti</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5">
+
+    <!-- SEZIONE 1: film di tendenza -->
+    <h1 class="mb-4">Film di tendenza</h1>
+    <button id="btnCarica" class="btn btn-primary mb-4">Carica film</button>
+    <div id="risultatoFilm" class="row row-cols-1 row-cols-md-4 g-4 mb-5"></div>
+
+    <hr>
+
+    <!-- SEZIONE 2: preferiti salvati -->
+    <h1 class="mb-4">I miei preferiti</h1>
+    <div id="listaPreferiti" class="row row-cols-1 row-cols-md-4 g-4"></div>
+
+  </div>
+
+  <!-- Il JS è già collegato: scrivete il codice in script.js -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!--
+  SOL-02 - URL template
+  Consegna: un input numerico per l'ID utente e un pulsante "Cerca post".
+  Al click, scarica i post di quell'utente e mostra titolo e corpo di ogni
+  post in una card Bootstrap.
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SOL-02 - URL template</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5" style="max-width: 700px;">
+    <h1 class="mb-4">Post di un utente</h1>
+
+    <div class="mb-3">
+      <label for="inputUserId" class="form-label">ID utente (1-10)</label>
+      <input type="number" id="inputUserId" class="form-control" value="1">
+    </div>
+
+    <button id="btnCerca" class="btn btn-primary mb-4">Cerca post</button>
+
+    <div id="risultatoPost"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

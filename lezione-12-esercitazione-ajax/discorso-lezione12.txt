@@ -1,0 +1,55 @@
+Bene ragazzi, oggi è il giorno della pratica vera su AJAX. Facciamo un
+ripasso veloce e poi si comincia.
+
+Lo schema è sempre lo stesso: fetch(url) parte la richiesta ma non
+torna subito i dati, torna una "promessa" che prima o poi si risolve,
+per questo mettiamo await davanti. Poi il risultato va convertito in
+dati veri con un secondo await, response.json(). Due await, sempre: se
+ve ne dimenticate uno il codice non va in errore, ma lavorate su cose
+non ancora pronte, quindi occhio.
+
+Poi la differenza tra GET e POST. GET si usa per LEGGERE: basta
+fetch(url), i parametri stanno nell'URL. POST si usa per MANDARE dati:
+fetch vuole un secondo parametro con method, headers e body, e il body
+deve sempre essere una stringa, per questo JSON.stringify. Oggi
+userete entrambe.
+
+Passiamo ai nove esercizi, in ordine di difficoltà crescente.
+
+Nell'1 rifacciamo il caso più semplice: un pulsante carica una lista
+di utenti in tabella. La parte importante è il for...of che costruisce
+le righe una alla volta.
+
+Nel 2 introduciamo l'URL template: costruite l'URL sostituendo un
+segnaposto con .replace(), PRIMA di chiamare fetch.
+
+Nel 3 c'è il meteo: i segnaposto sono due, quindi concatenate due
+.replace() di fila, e attenzione ai dati annidati, la temperatura è
+dentro data.current_weather.
+
+Dal 4 in poi entriamo nel POST con la cache remota del prof. Nel 4
+salvate una coppia chiave/valore: capite bene cosa va nell'header (il
+token) e cosa nel body (la vostra chiave e il valore).
+
+Nel 5 fate il percorso inverso: la cosa interessante è gestire la
+chiave che non esiste, guardando il TIPO di dato che torna, non il suo
+contenuto.
+
+Nel 6 mettete insieme il 4 e il 5 nella stessa pagina: niente di
+nuovo, ma occhio a non confondere le variabili dei due form.
+
+Nel 7 lavorate con la CocktailDB: la parte cruciale è gestire la
+ricerca senza risultati, con quel drinks || [] che evita errori quando
+l'array non esiste.
+
+Nell'8 arrivano i film di tendenza da TMDB: qui la chiave API va messa
+nell'URL come parametro, e i dati sono annidati dentro data.results.
+
+E infine il 9, il progetto completo: fetch dei film, salvataggio in
+cache, e una funzione render() che ridisegna sempre l'intera lista dei
+preferiti. È il più lungo ma è fatto solo di pezzi già visti, quindi
+non fatevi spaventare.
+
+Procedete con calma, e ricordatevi la regola d'oro: davanti a dati
+nuovi, prima console.log per vedere che forma hanno, e solo dopo
+scrivete il codice che li usa. Buon lavoro!
