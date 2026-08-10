@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+ESERCIZIO 12 — Lista preferiti persistente (progetto finale) — SOLUZIONE
+-->
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio 12 - Lista preferiti persistente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5" style="max-width: 600px;">
+        <h1 class="mb-4">Lista preferiti persistente</h1>
+
+        <form id="formStudente" class="row g-2 mb-2">
+            <div class="col">
+                <input type="text" id="nome" class="form-control" placeholder="Nome" required>
+            </div>
+            <div class="col-3">
+                <input type="number" id="voto" class="form-control" placeholder="Voto" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Aggiungi</button>
+            </div>
+        </form>
+
+        <button id="btnSvuota" class="btn btn-outline-danger mb-3">Svuota</button>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Voto</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabella"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

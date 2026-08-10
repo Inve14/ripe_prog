@@ -1,0 +1,15 @@
+/*
+ESERCIZIO 4 — Lista dinamica
+
+Crea una pagina con:
+- un campo di testo
+- un pulsante "Aggiungi"
+- un pulsante "Svuota"
+- una lista (ul) vuota
+
+Al click su "Aggiungi", il testo scritto viene aggiunto come nuovo elemento della lista
+(il campo di testo si svuota dopo l'aggiunta).
+Al click su "Svuota", tutta la lista viene cancellata.
+
+Concetti da usare: array, innerHTML +=, funzione render()
+*/

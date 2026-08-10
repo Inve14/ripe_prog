@@ -1,0 +1,85 @@
+LEZIONE 13 — ESERCIZI FINALI
+============================
+
+Ciao! Questa è l'ultima tappa: 12 esercizi che mettono insieme TUTTO quello
+che hai imparato finora — HTML, Bootstrap, JavaScript, il DOM e le fetch
+verso API vere. Sono in ordine di difficoltà crescente, quindi falli nell'ordine
+in cui li trovi, senza saltare avanti.
+
+A differenza delle esercitazioni precedenti, qui NON trovi nessuno scheletro
+pronto: niente HTML già scritto, niente querySelector già fatti. Devi costruire
+tutto da zero, leggendo la consegna scritta come commento in cima ai file
+index.html e script.js di ogni esercizio. È normale se all'inizio ti sembra più
+lento: è proprio l'allenamento che serve per l'esame.
+
+
+COME APRIRE GLI ESERCIZI
+-------------------------
+Questi sono esercizi HTML + JavaScript per il BROWSER, non per Node.js.
+NON si eseguono con il comando "node script.js".
+
+Per aprirli:
+1. Vai nella cartella dell'esercizio (es. esercizi/es-01)
+2. Fai doppio click sul file index.html (oppure tasto destro > Apri con > il tuo browser)
+3. Si aprirà una pagina vuota (perché all'inizio index.html e script.js sono vuoti):
+   è normale, tocca a te riempirla!
+
+Mentre lavori, puoi semplicemente salvare i file e ricaricare la pagina nel
+browser (F5) per vedere i cambiamenti.
+
+
+L'ORDINE CONSIGLIATO
+---------------------
+Segui l'ordine da es-01 a es-12: ogni esercizio riusa concetti dell'esercizio
+precedente e ne aggiunge uno nuovo. Se ti blocchi troppo a lungo su uno
+specifico esercizio, dai un'occhiata alla soluzione corrispondente nella
+cartella soluzioni/ (es. sol-03 per es-03), capisci il pezzo che ti mancava,
+poi torna a scrivere il codice CON LE TUE MANI: copiare e incollare non ti fa
+imparare, riscrivere sì.
+
+
+COME CONTROLLARE I CONSOLE.LOG
+--------------------------------
+Molti errori (e molti dati che arrivano dalle fetch) si vedono solo aprendo
+la Console del browser:
+
+1. Apri la pagina dell'esercizio nel browser
+2. Premi F12 (su Mac: Cmd+Opzione+I) per aprire gli Strumenti per Sviluppatori
+3. Clicca sulla scheda "Console"
+4. Lì vedrai sia i tuoi console.log(...) sia eventuali errori in rosso
+
+Se qualcosa non funziona e non capisci perché, la Console è SEMPRE il primo
+posto dove guardare. Un errore rosso ti dice quasi sempre il file e la riga
+esatta del problema.
+
+
+UN CONSIGLIO PER OGNI GRUPPO DI ESERCIZI
+------------------------------------------
+
+HTML + JS BASE (es-01 - es-07)
+Qui costruisci tu tutta la pagina da zero: struttura HTML, Bootstrap, e poi il
+JavaScript. Vai con calma sui primi 2-3, sono il momento giusto per fissare
+bene il pattern querySelector -> .value -> onclick -> innerHTML. Da es-03 in
+poi comincia a comparire il pattern render(): scrivi sempre una funzione che
+ridisegna tutto da zero leggendo l'array/variabile di stato, non aggiungere
+pezzi di HTML "a mano" qua e là.
+
+AJAX (es-08 - es-10)
+Qui il dato non lo scrivi più tu: arriva da un server vero, quindi può avere
+una forma che non ti aspetti. Prima regola: appena i dati arrivano, fai
+console.log(data) e guarda la struttura nella Console PRIMA di scrivere il
+codice che li usa. Seconda regola: schema fisso, sempre uguale — fetch(url),
+poi await sulla risposta, poi await su .json(). Non saltare mai un await.
+
+CACHE REMOTA (es-11 - es-12)
+È il pezzo più "magico" del corso: i dati restano salvati anche se chiudi e
+riapri la pagina. Il trucco da ricordare è che ci sono DUE cose diverse che si
+chiamano "key": il token (che va sempre nell'header, sempre lo stesso, dato
+nella consegna) e la chiave del TUO dato (quella che scegli tu per nominare
+cosa stai salvando, dentro il body). Non confonderle. Nell'es-12, prenditi
+tempo: è il progetto più completo del corso, mette insieme array, render(),
+fetch di salvataggio e fetch di lettura automatica all'apertura della pagina.
+Se ci arrivi da solo, hai davvero imparato tutto il corso.
+
+
+In bocca al lupo!
