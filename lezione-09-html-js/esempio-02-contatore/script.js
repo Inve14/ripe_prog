@@ -17,13 +17,13 @@ function aggiornaSchermo() {
 }
 
 // Ad ogni click su Aggiungi: aumentiamo la variabile e riscriviamo il numero a schermo.
-btnAggiungi.onclick = function () {
+btnAggiungi.onclick = () => {
   contatore = contatore + 1;
   aggiornaSchermo();
 };
 
 // Azzera: riportiamo la variabile a 0 e aggiorniamo di nuovo lo schermo.
-btnAzzera.onclick = function () {
+btnAzzera.onclick = () => {
   contatore = 0;
   aggiornaSchermo();
 };

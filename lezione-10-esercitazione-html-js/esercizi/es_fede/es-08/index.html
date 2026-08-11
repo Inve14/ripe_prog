@@ -1,0 +1,43 @@
+<!--
+  ES-08 - Tabella studenti
+  Consegna: form con nome e voto. Ogni submit aggiunge una riga a una
+  tabella Bootstrap, con un badge verde "Promosso" o rosso "Bocciato"
+  in base al voto. Un pulsante "Svuota" cancella tutta la tabella.
+  Concetti: array di dizionari, render() che ricrea la tabella, template.replace
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Form nome e voto</title>
+</head>
+
+<body>
+
+  <form id="form">
+    <input id="nome" type="text" placeholder="Nome">
+    <input id="voto" type="number" placeholder="Voto">
+    <button id="button" type="button">Invia</button>
+  </form>
+
+  <button id="svuota" type="button">Svuota</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Voto</th>
+        <th>Esito</th>
+      </tr>
+    </thead>
+    <tbody id="output">
+
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

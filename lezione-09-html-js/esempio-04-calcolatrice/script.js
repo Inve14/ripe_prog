@@ -6,7 +6,7 @@ const operazione = document.querySelector("#operazione");
 const btnCalcola = document.querySelector("#btnCalcola");
 const risultato = document.querySelector("#risultato");
 
-btnCalcola.onclick = function () {
+btnCalcola.onclick = () => {
   // Gli input restituiscono sempre TESTO, anche se sono di tipo "number".
   // parseFloat trasforma quel testo in un numero vero, con cui possiamo calcolare
   // (usiamo parseFloat e non parseInt perché vogliamo accettare anche i decimali).
@@ -30,18 +30,19 @@ btnCalcola.onclick = function () {
     esito = a + b;
     console.log(a+b);
     //  risultato.innerHTML = `Risultato: <strong>${a+b}</strong>`;
-  } else if (scelta === "-") {
+  } else if (scelta == "-") {
     esito = a - b;
-  } else if (scelta === "*") {
+  } else if (scelta == "*") {
     esito = a * b;
-  } else if (scelta === "/") {
+  } else if (scelta == "/") {
     // Caso speciale: la divisione per zero non è ammessa.
-    if (b === 0) {
+    if (b == 0) {
       risultato.innerHTML = "Impossibile dividere per zero.";
       return;
     }
     esito = a / b;
   }
 
-  risultato.innerHTML = `Risultato: <strong>${esito}</strong>`;
+  const template = ` %NUM1 %OP %NUM2 = %RIS`;
+  risultato.innerHTML = template.replace("%NUM1", a).replace("%OP", scelta).replace("%NUM2", b).replace("%RIS", esito);
 };

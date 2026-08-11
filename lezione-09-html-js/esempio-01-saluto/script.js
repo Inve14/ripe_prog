@@ -35,8 +35,10 @@ btnSaluta.onclick = () => {
 
   //render(nome);
   /*
-  const template = "ciao mi chiamo %NOME";
-  risultato.replace("%NOME", nome);
+  const template = "ciao mi chiamo %NOME %COGNOME";
+  risultato.innerHTML = template
+                          .replace("%NOME", nome)
+                          .replace("%COGNOME", cognome);
   */
   /*
   const template = "Ciao NOME, benvenuto!";

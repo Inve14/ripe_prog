@@ -16,10 +16,12 @@ function render() {
   // Prima puliamo la lista esistente...
   lista.innerHTML = "";
 
+  const template = `<li>%ELEMENTO</li>`;
+
   // ...poi la ricostruiamo un pezzo alla volta con +=, che vuol dire
   // "aggiungi questo pezzo di HTML a quello che c'è già dentro".
-  elementi.forEach(function (elemento) {
-    lista.innerHTML += `<li class="list-group-item">${elemento}</li>`;
+  elementi.forEach((elemento) => {
+    lista.innerHTML += template.replace("%ELEMENTO", elemento);
   });
 
 
@@ -36,7 +38,7 @@ function render() {
 }
 
 // Evento: click su Aggiungi -> Azione: leggo il valore e lo metto nell'array -> Reazione: render()
-btnAggiungi.onclick = function () {
+btnAggiungi.onclick = () => {
   const testo = inputElemento.value;
 
   if (testo === "") {
@@ -49,7 +51,7 @@ btnAggiungi.onclick = function () {
 };
 
 // Evento: click su Svuota -> Azione: svuoto l'array -> Reazione: render()
-btnSvuota.onclick = function () {
+btnSvuota.onclick = () => {
   elementi = [];
   render();
 };

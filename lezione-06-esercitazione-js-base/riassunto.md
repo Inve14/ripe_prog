@@ -17,6 +17,7 @@ Sessione di esercitazione pratica, senza teoria nuova: consolida quanto visto ne
 - `esercizi-js-base.js` — 9 esercizi (4 facili con suggerimento sul metodo, 4 medi con solo un indizio, 1 completo senza aiuti), eseguibile con Node.js, con dati di esempio pronti e spazio vuoto per scrivere la soluzione.
 - `soluzioni-js-base.js` — soluzioni complete e commentate dei 9 esercizi, ognuna con l'indicazione del metodo chiave usato e la motivazione della scelta; eseguibile con Node.js.
 - `discorso-lezione6.txt` — testo per l'introduzione orale della sessione: ripasso lampo dei metodi array e presentazione di ogni esercizio in due righe, tono incoraggiante.
+- `es-ric/` e `es-fede/` — due batterie di esercizi identiche (una per studente), 15 esercizi ciascuna in ordine crescente di difficoltà (variabili → if/else → for/while → arrow function → array: forEach/map/filter/find/sort/reduce → dizionari: for...in, Object.keys/values, array di dizionari, costruzione dizionario da due liste). Ogni esercizio è in una sottocartella `es-01`...`es-15` con un solo file `esercizio.js` (consegna commentata + dati pronti + spazio vuoto, eseguibile con Node.js). Le soluzioni sono in `soluzioni/sol-01`...`sol-15/soluzione.js`, complete e commentate. Tutti i file verificati con `node` senza errori.
 - `riassunto.md` — questo file, da aggiornare ogni volta che si lavora su questa lezione.
 
 ## Concetti chiave
