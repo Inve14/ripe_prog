@@ -5,16 +5,35 @@
   Mostra il risultato. Gestisce isNaN e divisione per zero.
   Usa template.replace() per costruire il messaggio del risultato.
 -->
+
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>ES-09 - Calcolatrice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice</title>
 </head>
 <body>
 
-  <!-- Scrivi qui la struttura HTML (input, pulsanti, div, tabelle...) -->
+    <h1>Calcolatrice</h1>
+
+    <input type="number" id="numero1" placeholder="Primo numero">
+    
+    <select id="operazione">
+        <option value="+">Somma (+)</option>
+        <option value="-">Sottrazione (-)</option>
+        <option value="*">Moltiplicazione (*)</option>
+        <option value="/">Divisione (/)</option>
+    </select>
+
+    <input type="number" id="numero2" placeholder="Secondo numero">
+    <button id ="btncalcola">Calcola</button>
+
+  <div id="risultato"></div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
+

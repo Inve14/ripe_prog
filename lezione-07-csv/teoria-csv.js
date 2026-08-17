@@ -24,6 +24,7 @@ Giulia, Bianchi, 9
 Marco, Verdi, 5
 `;
 
+
 console.log("--- CSV di esempio ---");
 console.log(csvEsempio);
 
@@ -37,6 +38,7 @@ console.log(csvEsempio);
 // alla fine della stringa, lasciando intatto il contenuto centrale.
 
 let csv = csvEsempio.trim();
+
 
 /*
 .trim() -> ci va a togliere gli spazi sopra e sotto
@@ -86,6 +88,11 @@ console.log(csv);
 
 const rows = csv.split('\n');
 
+/*
+crei un array dove ogni valore corrisponde a una riga del testo "csv"
+rows = ["nome,cognome,voto", "Luca,Rossi,7", ...]
+*/
+
 console.log("--- Dopo split('\\n') ---");
 console.log(rows);
 
@@ -116,6 +123,7 @@ console.log(rows);
 // array con i nomi delle colonne.
 
 const colonne = header.split(',');
+//colonne = ["nome", "cognome", "voto"]
 
 console.log("--- colonne (nomi delle colonne) ---");
 console.log(colonne);
@@ -139,11 +147,13 @@ const studenti = rows.map((row) => {
   const dizionario = {};
   
   colonne.forEach((nomeColonna, indice) => {
-    console.log(nomeColonna + " " + indice);
+    //console.log(nomeColonna + " " + indice);
     dizionario[nomeColonna] = valori[indice];
   });
+
   return dizionario;
 });
+
 
 
 console.log("--- studenti (array di dizionari) ---");
@@ -164,7 +174,7 @@ studenti[1].nome
 
 console.log("--- Accesso ai dati (notazione a punto) ---");
 studenti.forEach((studente) => {
-  console.log(`${studente.nome} ${studente.cognome} ha preso ${studente.voto}`);
+  console.log(studente.nome, " ", studente.cognome, " ha preso ", studente.voto);
 });
 
 
@@ -177,10 +187,11 @@ studenti.forEach((studente) => {
 // la riga dei valori con Object.values() + join(','), infine
 // uniamo tutte le righe (header compreso) con join('\n').
 
-const headerRisultato = colonne.join(',');
-const righeRisultato = studenti.map((studente) => Object.values(studente).join(','));
+const headerRisultato = colonne.join(','); //-> colonne =["nome", "cognome", "voto"] -> headerRsiultato = "nome,cgnome,voto"
+const righeRisultato = studenti.map((studente) => Object.values(studente).join(',')); //righeRisultato = ["Luca,Rossi,7", "Giulia,Bianchi,9",....]
 const csvRisultato = headerRisultato + '\n' + righeRisultato.join('\n');
 
+const csvRisultato = headerRisultato + '\n' + righeRisultato.join('\n');
 console.log("--- CSV risultato (con map + join) ---");
 console.log(csvRisultato);
 

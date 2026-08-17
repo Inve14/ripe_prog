@@ -26,7 +26,16 @@ btnLeggi.onclick = async () => {
     },
     // qui nel body basta la chiave che vogliamo cercare, non c'è
     // nessun "value" perché non stiamo salvando nulla
-    body: JSON.stringify({ key: chiave })
+    body: JSON.stringify({
+       key: chiave 
+      })
+
+    /*
+    body: JSON.stringify({
+      key: chiave,
+      value: JSON.stringify(valore)
+    })
+    */
   });
 
   const data = await response.json();

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soluzioni Esercizi Canvas</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f4f6fb;
+    color: #23272f;
+    padding: 40px 24px 80px 24px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 6px;
+    background: linear-gradient(90deg, #4f8ef7, #9b59b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  p.sub {
+    text-align: center;
+    color: #5c6472;
+    margin-bottom: 40px;
+  }
+  .griglia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 28px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .card {
+    background: white;
+    border: 1px solid #e1e5ee;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    margin: 0 0 4px 0;
+    color: #23272f;
+  }
+  .card .livello {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    color: white;
+  }
+  .facile { background: #2ecc71; }
+  .medio { background: #f4a300; }
+  .completo { background: #e63946; }
+  canvas {
+    background: #fff;
+    border: 2px dashed #c9d1e0;
+    border-radius: 6px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  footer {
+    text-align: center;
+    color: #5c6472;
+    margin-top: 50px;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>✅ Soluzioni — Esercizi Canvas</h1>
+<p class="sub">9 esercizi risolti e commentati, ognuno sul proprio canvas.</p>
+
+<div class="griglia">
+
+  <div class="card">
+    <span class="livello facile">Facile</span>
+    <h2>1. Tre rettangoli affiancati</h2>
+    <canvas id="canvas-es1" width="400" height="220"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello facile">Facile</span>
+    <h2>2. Semaforo</h2>
+    <canvas id="canvas-es2" width="400" height="320"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello facile">Facile</span>
+    <h2>3. Nome al centro</h2>
+    <canvas id="canvas-es3" width="400" height="220"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello facile">Facile</span>
+    <h2>4. Casa</h2>
+    <canvas id="canvas-es4" width="400" height="280"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello medio">Medio</span>
+    <h2>5. Scacchiera 8x8</h2>
+    <canvas id="canvas-es5" width="400" height="400"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello medio">Medio</span>
+    <h2>6. Grafico a barre orizzontali</h2>
+    <canvas id="canvas-es6" width="420" height="260"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello medio">Medio</span>
+    <h2>7. Orologio (segni delle ore)</h2>
+    <canvas id="canvas-es7" width="360" height="360"></canvas>
+  </div>
+
+  <div class="card">
+    <span class="livello medio">Medio</span>
+    <h2>8. Bandiera italiana</h2>
+    <canvas id="canvas-es8" width="420" height="260"></canvas>
+  </div>
+
+  <div class="card full-width">
+    <span class="livello completo">Completo</span>
+    <h2>9. Istogramma completo dei voti</h2>
+    <canvas id="canvas-es9" width="700" height="400"></canvas>
+  </div>
+
+</div>
+
+<footer>Soluzioni Esercizi Canvas — Lezione 15</footer>
+
+<script src="esercizi-canvas-soluzioni.js"></script>
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossario del Canvas HTML</title>
+<link rel="stylesheet" href="glossario-canvas.css">
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+<label for="menu-toggle" class="menu-toggle-btn">☰ Capitoli</label>
+
+<nav class="sidebar">
+  <div class="sidebar-title">
+    <span class="sidebar-icon">🎨</span>
+    <span>Glossario Canvas</span>
+  </div>
+  <ul class="sidebar-list">
+    <li><a href="#sezione-1"><span class="num">1</span> Cos'è il Canvas</a></li>
+    <li><a href="#sezione-2"><span class="num">2</span> Rettangoli</a></li>
+    <li><a href="#sezione-3"><span class="num">3</span> Path (Percorsi)</a></li>
+    <li><a href="#sezione-4"><span class="num">4</span> Cerchi e Archi</a></li>
+    <li><a href="#sezione-5"><span class="num">5</span> Testo</a></li>
+    <li><a href="#sezione-6"><span class="num">6</span> Testo Verticale</a></li>
+    <li><a href="#sezione-7"><span class="num">7</span> Colori e Stili</a></li>
+    <li><a href="#sezione-8"><span class="num">8</span> Pulizia e Reset</a></li>
+    <li><a href="#sezione-9"><span class="num">9</span> Istogramma Completo</a></li>
+  </ul>
+  <div class="sidebar-footer">Lezione 15 — Canvas</div>
+</nav>
+
+<main>
+
+  <header class="hero">
+    <h1>🎨 Il Canvas HTML</h1>
+    <p>Guida completa e interattiva al disegno 2D con JavaScript. Ogni sezione ha spiegazione, codice ed esempio dal vivo: premi <strong>Esegui</strong> per vedere il risultato.</p>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 1 — COS'È IL CANVAS -->
+  <!-- ============================================================ -->
+  <section id="sezione-1" class="sezione">
+    <h2><span class="badge">1</span> Cos'è il Canvas</h2>
+
+    <div class="testo">
+      <p>Il tag <code>&lt;canvas&gt;</code> è un elemento HTML che funziona come una <strong>tela vuota</strong>: di per sé non mostra nulla, è solo un rettangolo bianco (o trasparente) su cui possiamo disegnare usando JavaScript. Tutto quello che vedrai su un canvas — rettangoli, cerchi, linee, testo, immagini — viene disegnato riga per riga di codice, non con HTML o CSS.</p>
+
+      <p>Si inserisce in una pagina HTML esattamente come qualsiasi altro tag:</p>
+      <pre><code>&lt;canvas id="mioCanvas" width="500" height="400"&gt;&lt;/canvas&gt;</code></pre>
+
+      <p>L'attributo <code>id</code> ci serve per "agganciarlo" da JavaScript. Gli attributi <code>width</code> e <code>height</code> definiscono la <strong>risoluzione reale</strong> del disegno, cioè quanti pixel abbiamo a disposizione per disegnare.</p>
+
+      <h3>Collegare JavaScript al canvas</h3>
+      <p>Per poter disegnare servono due passaggi, sempre uguali:</p>
+      <ol>
+        <li><code>getElementById("mioCanvas")</code> — prendo il riferimento al tag canvas nella pagina, come faremmo con qualunque altro elemento HTML.</li>
+        <li><code>.getContext("2d")</code> — chiedo al canvas il suo "contesto di disegno 2D". Questo oggetto (di solito chiamato <code>ctx</code>) è quello che contiene <strong>tutti</strong> i metodi per disegnare: <code>fillRect</code>, <code>arc</code>, <code>fillText</code> e così via. Da questo punto in poi, ogni comando di disegno parte da <code>ctx</code>.</li>
+      </ol>
+
+      <h3>Il sistema di coordinate</h3>
+      <p>Il canvas usa un sistema di coordinate diverso da quello che si studia in matematica. Il punto <code>(0, 0)</code> si trova nell'<strong>angolo in alto a sinistra</strong>, non al centro. Da lì:</p>
+      <ul>
+        <li>l'asse <strong>X</strong> cresce andando verso <strong>destra</strong> (come al solito);</li>
+        <li>l'asse <strong>Y</strong> cresce andando verso <strong>il basso</strong> (al contrario della matematica classica!).</li>
+      </ul>
+      <p>Quindi il punto <code>(400, 300)</code> su un canvas 500×400 si trova in basso a destra, vicino all'angolo. È l'errore più comune per chi inizia: pensare che Y cresca verso l'alto come sui grafici cartesiani.</p>
+
+      <h3>Canvas vs SVG</h3>
+      <p>Sono due modi diversi per disegnare grafica sul web e vale la pena capire la differenza:</p>
+      <table class="tabella-confronto">
+        <tr><th></th><th>Canvas</th><th>SVG</th></tr>
+        <tr><td><strong>Come funziona</strong></td><td>è una griglia di pixel (bitmap): si "dipinge" e il canvas non ricorda le forme disegnate</td><td>è un insieme di forme vettoriali descritte in XML: ogni forma resta un elemento nel DOM</td></tr>
+        <tr><td><strong>Modifiche</strong></td><td>per cambiare qualcosa bisogna ridisegnare (spesso tutto)</td><td>si può modificare un singolo elemento come si farebbe con l'HTML</td></tr>
+        <tr><td><strong>Prestazioni</strong></td><td>ottimo con tante forme o animazioni veloci (giochi, grafici dati in tempo reale)</td><td>ottimo con poche forme che devono restare nitide a ogni zoom</td></tr>
+        <tr><td><strong>Ridimensionamento</strong></td><td>perde qualità se ingrandito (è una bitmap)</td><td>resta sempre nitido (è vettoriale)</td></tr>
+      </table>
+
+      <h3>width e height: attributi HTML, non CSS!</h3>
+      <p>Questo è un punto delicato. Il canvas ha <strong>due dimensioni diverse</strong> che è facile confondere:</p>
+      <ul>
+        <li><strong>width/height come attributi HTML</strong> (<code>&lt;canvas width="500" height="400"&gt;</code>) — definiscono la vera risoluzione del sistema di coordinate su cui disegniamo.</li>
+        <li><strong>width/height impostati via CSS</strong> (es. <code>canvas { width: 500px; }</code>) — cambiano solo la dimensione visiva sullo schermo, <strong>deformando</strong> il disegno se non rispettano le proporzioni originali, un po' come stirare una fotografia.</li>
+      </ul>
+      <p>Regola pratica: <strong>imposta sempre width e height come attributi HTML</strong> (o via JavaScript con <code>canvas.width = 500</code>), ed evita di ridimensionare il canvas con il CSS a meno che tu non sappia esattamente cosa stai facendo.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>const canvas = document.getElementById("canvas-1");
+const ctx = canvas.getContext("2d");
+
+// bordo esterno del canvas
+ctx.strokeStyle = "#888";
+ctx.lineWidth = 2;
+ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+// asse X (rosso) e asse Y (blu), partendo dall'origine (0,0)
+ctx.strokeStyle = "red";
+ctx.beginPath();
+ctx.moveTo(0, 20);
+ctx.lineTo(canvas.width, 20);
+ctx.stroke();
+
+ctx.strokeStyle = "blue";
+ctx.beginPath();
+ctx.moveTo(20, 0);
+ctx.lineTo(20, canvas.height);
+ctx.stroke();
+
+ctx.fillStyle = "black";
+ctx.font = "14px Arial";
+ctx.fillText("(0,0)", 25, 15);</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-1" width="500" height="300"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-1">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 2 — RETTANGOLI -->
+  <!-- ============================================================ -->
+  <section id="sezione-2" class="sezione">
+    <h2><span class="badge">2</span> Rettangoli</h2>
+
+    <div class="testo">
+      <p>I rettangoli sono la forma più semplice del canvas: a differenza di cerchi o linee, non serve costruirli con un "percorso" (vedremo i path nella sezione 3), esistono metodi diretti già pronti.</p>
+
+      <table class="tabella-metodi">
+        <tr><th>Metodo</th><th>Cosa fa</th></tr>
+        <tr><td><code>fillRect(x, y, w, h)</code></td><td>disegna un rettangolo <strong>pieno</strong>, colorato con <code>fillStyle</code></td></tr>
+        <tr><td><code>strokeRect(x, y, w, h)</code></td><td>disegna solo il <strong>bordo</strong> del rettangolo, colorato con <code>strokeStyle</code></td></tr>
+        <tr><td><code>clearRect(x, y, w, h)</code></td><td><strong>cancella</strong> (rende trasparente) tutto ciò che si trova in quell'area rettangolare, canvas compreso</td></tr>
+      </table>
+
+      <p>In tutti e tre i casi i parametri sono gli stessi: <code>x</code> e <code>y</code> sono le coordinate dell'angolo in alto a sinistra del rettangolo, <code>w</code> e <code>h</code> sono larghezza e altezza.</p>
+
+      <h3>fillStyle — il colore di riempimento</h3>
+      <p>Prima di chiamare <code>fillRect</code>, si imposta il colore con <code>ctx.fillStyle</code>. Accetta diversi formati, tutti validi:</p>
+      <ul>
+        <li><strong>nome colore</strong>: <code>ctx.fillStyle = "orange"</code></li>
+        <li><strong>esadecimale</strong>: <code>ctx.fillStyle = "#ff8800"</code></li>
+        <li><strong>rgb()</strong>: <code>ctx.fillStyle = "rgb(255, 136, 0)"</code></li>
+        <li><strong>rgba()</strong>: <code>ctx.fillStyle = "rgba(255, 136, 0, 0.5)"</code> — il quarto valore è la trasparenza, da 0 (invisibile) a 1 (opaco)</li>
+      </ul>
+
+      <h3>strokeStyle e lineWidth</h3>
+      <p><code>ctx.strokeStyle</code> funziona esattamente come <code>fillStyle</code> ma imposta il colore del <strong>bordo</strong>, usato da <code>strokeRect</code> (e più avanti da <code>stroke()</code>). <code>ctx.lineWidth</code> imposta lo spessore del bordo in pixel (default: 1).</p>
+
+      <p><strong>Attenzione:</strong> <code>fillStyle</code>, <code>strokeStyle</code> e <code>lineWidth</code> restano "attivi" per tutti i disegni successivi finché non li cambi di nuovo — non vanno reimpostati ad ogni forma se il colore non cambia.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>const ctx = canvas.getContext("2d");
+
+// rettangolo pieno
+ctx.fillStyle = "#4f8ef7";
+ctx.fillRect(30, 30, 120, 80);
+
+// rettangolo solo bordo, spessore 4px
+ctx.strokeStyle = "#e63946";
+ctx.lineWidth = 4;
+ctx.strokeRect(190, 30, 120, 80);
+
+// rettangolo semi-trasparente con rgba
+ctx.fillStyle = "rgba(46, 204, 113, 0.6)";
+ctx.fillRect(90, 130, 120, 80);
+
+// cancella un pezzo di quello pieno sopra
+ctx.clearRect(60, 50, 40, 30);</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-2" width="500" height="260"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-2">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 3 — PATH -->
+  <!-- ============================================================ -->
+  <section id="sezione-3" class="sezione">
+    <h2><span class="badge">3</span> Path (Percorsi)</h2>
+
+    <div class="testo">
+      <p>Per disegnare qualsiasi forma diversa da un rettangolo (triangoli, stelle, forme irregolari, linee spezzate...) si usa un <strong>path</strong>, cioè un percorso costruito punto dopo punto, come se si muovesse una penna sul foglio.</p>
+
+      <table class="tabella-metodi">
+        <tr><th>Metodo</th><th>Cosa fa</th></tr>
+        <tr><td><code>beginPath()</code></td><td>inizia un <strong>nuovo</strong> percorso, azzerando quelli precedenti</td></tr>
+        <tr><td><code>moveTo(x, y)</code></td><td>sposta la "penna" nel punto (x, y) <strong>senza disegnare</strong> nulla</td></tr>
+        <tr><td><code>lineTo(x, y)</code></td><td>traccia una linea dal punto attuale fino a (x, y), e quel punto diventa il nuovo punto attuale</td></tr>
+        <tr><td><code>closePath()</code></td><td>chiude il percorso tracciando una linea dall'ultimo punto fino al punto di partenza</td></tr>
+        <tr><td><code>stroke()</code></td><td>rende visibile il percorso disegnando <strong>solo il bordo</strong></td></tr>
+        <tr><td><code>fill()</code></td><td>riempie l'area del percorso con <code>fillStyle</code></td></tr>
+      </table>
+
+      <p>La sequenza tipica è sempre la stessa: <code>beginPath()</code> → uno o più <code>moveTo</code>/<code>lineTo</code> → eventualmente <code>closePath()</code> → <code>stroke()</code> e/o <code>fill()</code>.</p>
+
+      <h3>Differenza fra stroke() e fill()</h3>
+      <p><code>stroke()</code> disegna solo il contorno del percorso (usa <code>strokeStyle</code> e <code>lineWidth</code>), lasciando l'interno vuoto/trasparente. <code>fill()</code> invece riempie tutta l'area chiusa dal percorso (usa <code>fillStyle</code>) — e funziona anche se non hai chiamato <code>closePath()</code>, perché <code>fill()</code> chiude automaticamente la forma "virtualmente" prima di colorarla. Puoi anche chiamarli entrambi sullo stesso percorso, per avere sia riempimento che bordo ben visibile.</p>
+
+      <h3>Un dettaglio importante su beginPath()</h3>
+      <p>Se dimentichi <code>beginPath()</code> prima di un nuovo disegno, il canvas continuerà ad aggiungere punti al percorso <strong>precedente</strong> invece di iniziarne uno pulito, causando forme strane collegate fra loro con linee indesiderate. Regola pratica: ogni forma nuova comincia con <code>beginPath()</code>.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio (triangolo)</h3>
+    <pre class="code-block"><code>ctx.beginPath();
+ctx.moveTo(100, 20);   // punta in alto
+ctx.lineTo(160, 120);  // in basso a destra
+ctx.lineTo(40, 120);   // in basso a sinistra
+ctx.closePath();       // torna alla punta
+ctx.fillStyle = "#f4a300";
+ctx.fill();
+ctx.strokeStyle = "black";
+ctx.stroke();</code></pre>
+
+    <p class="nota-esempio">L'esempio dal vivo qui sotto disegna un triangolo, una stella a 5 punte e una forma irregolare, tutte costruite solo con <code>moveTo</code>/<code>lineTo</code>.</p>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-3" width="500" height="260"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-3">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 4 — CERCHI E ARCHI -->
+  <!-- ============================================================ -->
+  <section id="sezione-4" class="sezione">
+    <h2><span class="badge">4</span> Cerchi e Archi</h2>
+
+    <div class="testo">
+      <p>Il canvas non ha un metodo <code>circle()</code>: cerchi, semicerchi e spicchi si disegnano tutti con un unico metodo, <code>arc()</code>, che in realtà disegna un <strong>arco di circonferenza</strong> — un cerchio completo è semplicemente un arco da 0 a 360 gradi.</p>
+
+      <pre class="code-block-inline"><code>ctx.arc(x, y, raggio, angoloInizio, angoloFine, sensoAntiorario)</code></pre>
+
+      <ul>
+        <li><code>x, y</code> — il <strong>centro</strong> della circonferenza (non l'angolo come nei rettangoli!)</li>
+        <li><code>raggio</code> — il raggio in pixel</li>
+        <li><code>angoloInizio</code>, <code>angoloFine</code> — da dove a dove disegnare l'arco, <strong>in radianti</strong></li>
+        <li><code>sensoAntiorario</code> — parametro opzionale booleano: <code>true</code> disegna in senso antiorario, <code>false</code> (default) in senso orario</li>
+      </ul>
+
+      <h3>Gli angoli sono in radianti, non in gradi</h3>
+      <p>Questo è il punto che confonde di più all'inizio. Il canvas non usa i gradi (0-360) ma i <strong>radianti</strong>. I riferimenti principali da ricordare:</p>
+      <ul>
+        <li><code>0</code> → punta verso <strong>destra</strong> (le 3 in punto su un orologio)</li>
+        <li><code>Math.PI / 2</code> → punta verso <strong>il basso</strong></li>
+        <li><code>Math.PI</code> → punta verso <strong>sinistra</strong> (mezzo giro, 180°)</li>
+        <li><code>2 * Math.PI</code> → giro <strong>completo</strong> (360°), torna al punto di partenza</li>
+      </ul>
+      <p>Se preferisci ragionare in gradi (più intuitivo), puoi sempre convertirli al volo con la formula:</p>
+      <pre class="code-block-inline"><code>radianti = gradi * Math.PI / 180</code></pre>
+      <p>Esempio: un quarto di cerchio (90°) si scrive <code>90 * Math.PI / 180</code>, che equivale a <code>Math.PI / 2</code>.</p>
+
+      <h3>Le quattro varianti principali</h3>
+      <table class="tabella-metodi">
+        <tr><th>Forma</th><th>Come si ottiene</th></tr>
+        <tr><td>Cerchio pieno</td><td><code>arc(x, y, r, 0, 2*Math.PI)</code> + <code>fill()</code></td></tr>
+        <tr><td>Cerchio vuoto (solo bordo)</td><td><code>arc(x, y, r, 0, 2*Math.PI)</code> + <code>stroke()</code></td></tr>
+        <tr><td>Semicerchio</td><td><code>arc(x, y, r, 0, Math.PI)</code> + <code>fill()</code>/<code>stroke()</code></td></tr>
+        <tr><td>Spicchio (fetta di torta)</td><td><code>moveTo</code> al centro + <code>arc(...)</code> + <code>closePath()</code> + <code>fill()</code></td></tr>
+      </table>
+      <p>Per lo <strong>spicchio</strong> serve un trucco: prima di disegnare l'arco bisogna spostarsi con <code>moveTo(x, y)</code> nel centro del cerchio, così che <code>closePath()</code> tracci i due "raggi" che chiudono la fetta, invece di lasciare solo l'arco esterno.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>// cerchio pieno
+ctx.beginPath();
+ctx.arc(80, 90, 60, 0, 2 * Math.PI);
+ctx.fillStyle = "#4f8ef7";
+ctx.fill();
+
+// cerchio vuoto
+ctx.beginPath();
+ctx.arc(230, 90, 60, 0, 2 * Math.PI);
+ctx.strokeStyle = "#e63946";
+ctx.lineWidth = 3;
+ctx.stroke();
+
+// semicerchio
+ctx.beginPath();
+ctx.arc(380, 90, 60, 0, Math.PI);
+ctx.fillStyle = "#2ecc71";
+ctx.fill();
+
+// spicchio (fetta) di 90 gradi
+ctx.beginPath();
+ctx.moveTo(80, 220);
+ctx.arc(80, 220, 60, 0, 90 * Math.PI / 180);
+ctx.closePath();
+ctx.fillStyle = "#f4a300";
+ctx.fill();</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-4" width="500" height="320"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-4">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 5 — TESTO -->
+  <!-- ============================================================ -->
+  <section id="sezione-5" class="sezione">
+    <h2><span class="badge">5</span> Testo</h2>
+
+    <div class="testo">
+      <p>Il canvas può scrivere testo con due metodi speculari a quelli dei rettangoli e dei path:</p>
+      <table class="tabella-metodi">
+        <tr><th>Metodo</th><th>Cosa fa</th></tr>
+        <tr><td><code>fillText(testo, x, y)</code></td><td>scrive testo <strong>pieno</strong>, colorato con <code>fillStyle</code></td></tr>
+        <tr><td><code>strokeText(testo, x, y)</code></td><td>scrive testo <strong>solo bordo</strong> (contorno delle lettere), colorato con <code>strokeStyle</code></td></tr>
+      </table>
+      <p>Le coordinate <code>x, y</code> indicano dove posizionare il testo, ma <strong>il punto esatto dipende da <code>textAlign</code> e <code>textBaseline</code></strong> (vedi sotto).</p>
+
+      <h3>font</h3>
+      <p>Prima di scrivere si imposta il font con la stessa sintassi del CSS, come stringa unica:</p>
+      <pre class="code-block-inline"><code>ctx.font = "20px Arial";
+ctx.font = "bold 32px Georgia";</code></pre>
+
+      <h3>textAlign — allineamento orizzontale</h3>
+      <p>Decide come il testo si posiziona <strong>rispetto alla coordinata x</strong>:</p>
+      <ul>
+        <li><code>"left"</code> (default) — il testo inizia da x, si estende verso destra</li>
+        <li><code>"center"</code> — x è il centro orizzontale del testo</li>
+        <li><code>"right"</code> — il testo termina in x, si estende verso sinistra</li>
+      </ul>
+
+      <h3>textBaseline — allineamento verticale</h3>
+      <p>Decide come il testo si posiziona <strong>rispetto alla coordinata y</strong>:</p>
+      <ul>
+        <li><code>"top"</code> — y è il bordo superiore del testo</li>
+        <li><code>"middle"</code> — y è il centro verticale del testo</li>
+        <li><code>"bottom"</code> — y è il bordo inferiore del testo</li>
+      </ul>
+      <p>Per centrare perfettamente un testo dentro un rettangolo o un canvas, la combinazione giusta è <code>textAlign = "center"</code> + <code>textBaseline = "middle"</code>, usando come x,y il centro esatto dell'area.</p>
+
+      <h3>measureText()</h3>
+      <p>A volte serve sapere <strong>quanto è largo</strong> un testo prima di disegnarlo (per centrarlo manualmente, o per capire se sta dentro uno spazio). Si usa:</p>
+      <pre class="code-block-inline"><code>const larghezza = ctx.measureText("Ciao mondo").width;</code></pre>
+      <p>Restituisce un oggetto con diverse informazioni sulla misura del testo; la proprietà <code>.width</code> è quella usata più spesso.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>// testo centrato nel canvas
+ctx.font = "bold 28px Arial";
+ctx.fillStyle = "#333";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText("Testo centrato", canvas.width / 2, 60);
+
+// testo solo bordo (contorno)
+ctx.font = "bold 40px Arial";
+ctx.strokeStyle = "#4f8ef7";
+ctx.lineWidth = 1.5;
+ctx.strokeText("CONTORNO", canvas.width / 2, 140);
+
+// misura del testo
+ctx.font = "16px Arial";
+const testo = "Questo testo è largo:";
+const larghezza = ctx.measureText(testo).width;
+ctx.textAlign = "left";
+ctx.fillStyle = "#555";
+ctx.fillText(testo + " " + Math.round(larghezza) + "px", 20, 200);</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-5" width="500" height="240"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-5">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 6 — TESTO VERTICALE -->
+  <!-- ============================================================ -->
+  <section id="sezione-6" class="sezione">
+    <h2><span class="badge">6</span> Testo Verticale</h2>
+
+    <div class="testo">
+      <p>Il canvas non ha un modo diretto per scrivere testo ruotato: non esiste una proprietà tipo <code>textDirection = "vertical"</code>. Il trucco è <strong>ruotare l'intero sistema di coordinate</strong>, scrivere il testo normalmente (orizzontale), e poi riportare gli assi come erano prima. Per farlo servono quattro metodi:</p>
+
+      <table class="tabella-metodi">
+        <tr><th>Metodo</th><th>Cosa fa</th></tr>
+        <tr><td><code>save()</code></td><td>salva una "fotografia" dello stato attuale del contesto (trasformazioni, colori, font...)</td></tr>
+        <tr><td><code>translate(x, y)</code></td><td>sposta l'origine (0,0) degli assi nel punto (x, y)</td></tr>
+        <tr><td><code>rotate(angolo)</code></td><td>ruota gli assi (in radianti) <strong>attorno alla nuova origine</strong></td></tr>
+        <tr><td><code>restore()</code></td><td>ripristina lo stato salvato con l'ultimo <code>save()</code>, annullando translate/rotate</td></tr>
+      </table>
+
+      <h3>Lo schema passo per passo</h3>
+      <p>Per scrivere del testo verticale (ad esempio ruotato di -90°, dal basso verso l'alto) la sequenza è sempre questa:</p>
+      <ol>
+        <li><code>ctx.save()</code> — metto da parte lo stato "normale" del contesto</li>
+        <li><code>ctx.translate(x, y)</code> — sposto l'origine nel punto dove voglio scrivere il testo</li>
+        <li><code>ctx.rotate(-Math.PI / 2)</code> — ruoto gli assi di 90° in senso antiorario</li>
+        <li><code>ctx.fillText("...", 0, 0)</code> — scrivo il testo a partire dalla <strong>nuova</strong> origine (0,0), che ora corrisponde al punto (x, y) di prima ma ruotato</li>
+        <li><code>ctx.restore()</code> — riporto gli assi come erano, pronti per disegnare altro normalmente</li>
+      </ol>
+
+      <h3>Perché serve save()/restore()</h3>
+      <p>Se ti dimentichi <code>restore()</code> dopo aver ruotato, <strong>la rotazione resta attiva per sempre</strong>: tutto quello che disegni dopo (rettangoli, altro testo, cerchi...) risulterà ruotato e spostato, anche se nel tuo codice sembra "normale". È un errore molto comune e difficile da individuare, perché il codice successivo è scritto correttamente ma il sistema di riferimento sotto di esso è cambiato. La coppia <code>save()</code>/<code>restore()</code> funziona come delle parentesi: tutto quello che sta in mezzo è "temporaneo", tutto quello che sta fuori resta normale.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>ctx.save();                      // 1. salvo lo stato
+ctx.translate(30, 220);          // 2. sposto l'origine nel punto (30, 220)
+ctx.rotate(-Math.PI / 2);        // 3. ruoto di -90°
+ctx.font = "bold 18px Arial";
+ctx.fillStyle = "#333";
+ctx.textAlign = "center";
+ctx.fillText("Quantità", 0, 0);  // 4. scrivo alla nuova origine (0,0)
+ctx.restore();                   // 5. ripristino gli assi normali
+
+// da qui in poi disegno normalmente, senza rotazione
+ctx.fillStyle = "#4f8ef7";
+ctx.fillRect(100, 100, 60, 100);</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-6" width="500" height="260"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-6">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 7 — COLORI E STILI -->
+  <!-- ============================================================ -->
+  <section id="sezione-7" class="sezione">
+    <h2><span class="badge">7</span> Colori e Stili</h2>
+
+    <div class="testo">
+      <p>Abbiamo già visto <code>fillStyle</code> e <code>strokeStyle</code> nella sezione 2. Qui approfondiamo tutti i modi in cui puoi definire un colore, più due strumenti avanzati: la trasparenza globale e i gradienti.</p>
+
+      <h3>I quattro formati di colore</h3>
+      <table class="tabella-metodi">
+        <tr><th>Formato</th><th>Esempio</th></tr>
+        <tr><td>Nome colore</td><td><code>ctx.fillStyle = "tomato"</code></td></tr>
+        <tr><td>Esadecimale</td><td><code>ctx.fillStyle = "#ff6347"</code></td></tr>
+        <tr><td><code>rgb()</code></td><td><code>ctx.fillStyle = "rgb(255, 99, 71)"</code></td></tr>
+        <tr><td><code>rgba()</code></td><td><code>ctx.fillStyle = "rgba(255, 99, 71, 0.5)"</code> (il 4° valore è la trasparenza, 0-1)</td></tr>
+      </table>
+
+      <h3>globalAlpha — trasparenza globale</h3>
+      <p>Mentre <code>rgba()</code> rende trasparente <strong>un singolo colore</strong>, <code>ctx.globalAlpha</code> rende trasparente <strong>tutto quello che disegni dopo</strong>, indipendentemente dal colore usato. Va da <code>0</code> (completamente invisibile) a <code>1</code> (completamente opaco, il default). È utile per dissolvenze o per sovrapporre forme senza nascondere quello che c'è sotto. Come per fillStyle, resta attivo finché non lo cambi di nuovo — ricordati di riportarlo a 1 se non vuoi che tutto il resto del disegno sia trasparente!</p>
+
+      <h3>Gradienti lineari</h3>
+      <p>Un gradiente lineare sfuma il colore lungo una linea retta (es. da sinistra a destra). Si costruisce in due passaggi:</p>
+      <pre class="code-block-inline"><code>const gradiente = ctx.createLinearGradient(x0, y0, x1, y1);
+gradiente.addColorStop(0, "colore iniziale");
+gradiente.addColorStop(1, "colore finale");
+ctx.fillStyle = gradiente;</code></pre>
+      <p><code>createLinearGradient(x0,y0, x1,y1)</code> definisce la linea lungo cui avviene la sfumatura (dal punto iniziale al punto finale). <code>addColorStop(posizione, colore)</code> aggiunge una "tappa" di colore, dove <code>posizione</code> va da 0 (inizio linea) a 1 (fine linea) — puoi aggiungerne quante vuoi, ad esempio anche una a 0.5 per un colore intermedio.</p>
+
+      <h3>Gradienti radiali</h3>
+      <p>Sfumano il colore partendo da un cerchio interno verso un cerchio esterno, creando un effetto "a bersaglio" o "a sfera":</p>
+      <pre class="code-block-inline"><code>const gradiente = ctx.createRadialGradient(x0, y0, r0, x1, y1, r1);
+gradiente.addColorStop(0, "colore al centro");
+gradiente.addColorStop(1, "colore al bordo");</code></pre>
+      <p>I sei parametri descrivono due cerchi: centro e raggio del cerchio interno (<code>x0,y0,r0</code>) e centro e raggio del cerchio esterno (<code>x1,y1,r1</code>). Usando lo stesso centro per entrambi si ottiene un effetto radiale simmetrico, molto usato per simulare sfere o luci.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>// nome, hex, rgb, rgba affiancati
+ctx.fillStyle = "tomato";       ctx.fillRect(20, 20, 80, 60);
+ctx.fillStyle = "#4f8ef7";      ctx.fillRect(110, 20, 80, 60);
+ctx.fillStyle = "rgb(46,204,113)"; ctx.fillRect(200, 20, 80, 60);
+ctx.fillStyle = "rgba(155,89,182,0.5)"; ctx.fillRect(290, 20, 80, 60);
+
+// globalAlpha
+ctx.globalAlpha = 0.4;
+ctx.fillStyle = "black";
+ctx.fillRect(20, 20, 350, 60);
+ctx.globalAlpha = 1; // riporto opaco
+
+// gradiente lineare
+const grad = ctx.createLinearGradient(20, 110, 380, 110);
+grad.addColorStop(0, "#ff512f");
+grad.addColorStop(1, "#f09819");
+ctx.fillStyle = grad;
+ctx.fillRect(20, 110, 360, 50);
+
+// gradiente radiale
+const gradR = ctx.createRadialGradient(430, 190, 5, 430, 190, 60);
+gradR.addColorStop(0, "#ffffff");
+gradR.addColorStop(1, "#4f8ef7");
+ctx.fillStyle = gradR;
+ctx.beginPath();
+ctx.arc(430, 190, 60, 0, 2 * Math.PI);
+ctx.fill();</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-7" width="500" height="280"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-7">▶ Esegui</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 8 — PULIZIA E RESET -->
+  <!-- ============================================================ -->
+  <section id="sezione-8" class="sezione">
+    <h2><span class="badge">8</span> Pulizia e Reset</h2>
+
+    <div class="testo">
+      <p>Il canvas non "ricorda" le forme che disegni: non sono oggetti come nel DOM, sono solo pixel colorati. Questo significa che per cancellare tutto e ricominciare basta un solo comando, applicato all'intera area:</p>
+      <pre class="code-block-inline"><code>ctx.clearRect(0, 0, canvas.width, canvas.height);</code></pre>
+      <p>Usa lo stesso metodo <code>clearRect</code> visto nella sezione 2, ma applicato a tutta la superficie del canvas (da 0,0 fino a larghezza e altezza massime) invece che a una piccola area.</p>
+
+      <h3>Il pattern render()</h3>
+      <p>Nelle applicazioni interattive (dove il disegno cambia in risposta a click, input, dati aggiornati...) si usa quasi sempre lo stesso schema, chiamato <strong>pattern render()</strong>: si scrive una funzione (spesso chiamata proprio <code>render</code>) che, ogni volta che viene chiamata:</p>
+      <ol>
+        <li>pulisce tutto il canvas con <code>clearRect</code>;</li>
+        <li>ridisegna <strong>da zero</strong> tutto quello che deve essere visibile, basandosi sui dati/stato attuali.</li>
+      </ol>
+      <p>Questo evita di dover "cancellare solo il pezzo che è cambiato" (complicato e soggetto a errori) e garantisce che il disegno sia sempre coerente con lo stato attuale del programma: qualunque cosa cambi, basta richiamare <code>render()</code> e il canvas si aggiorna correttamente. È lo stesso principio usato per aggiornare le pagine HTML con JavaScript (svuotare e riscrivere l'<code>innerHTML</code>), applicato al disegno.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio</h3>
+    <pre class="code-block"><code>function render() {
+  // 1. pulisco tutto
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // 2. ridisegno da zero in base allo stato attuale
+  ctx.fillStyle = colori[indiceColore];
+  ctx.beginPath();
+  ctx.arc(250, 130, 70, 0, 2 * Math.PI);
+  ctx.fill();
+}
+
+// il pulsante "Pulisci" chiama semplicemente clearRect
+document.getElementById("btnPulisci").onclick = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+};</code></pre>
+
+    <p class="nota-esempio">Nell'esempio dal vivo, "Esegui" disegna un cerchio colorato casuale ogni volta (dimostrando <code>render()</code>), mentre il secondo pulsante lo cancella con <code>clearRect</code>.</p>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-8" width="500" height="260"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-8">▶ Esegui (disegna)</button>
+      <button class="btn-esegui btn-secondario" id="btn-8-pulisci">🗑 Pulisci</button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SEZIONE 9 — ISTOGRAMMA COMPLETO -->
+  <!-- ============================================================ -->
+  <section id="sezione-9" class="sezione">
+    <h2><span class="badge">9</span> Esempio Completo: Istogramma</h2>
+
+    <div class="testo">
+      <p>Chiudiamo il glossario mettendo insieme tutto quello visto finora in un caso pratico completo: un <strong>istogramma</strong> (grafico a barre) che mostra quanti studenti hanno preso ogni voto, un esercizio molto comune. Vediamo passo per passo come si costruisce.</p>
+
+      <h3>1. I dati di partenza</h3>
+      <p>Partiamo da un array che conta quante volte compare ogni voto, ad esempio indice 0 = voto 1 (nessuno), fino a indice 10 = voto 10. Nell'esempio useremo un array di 11 posizioni con il conteggio degli studenti per ogni voto da 0 a 10.</p>
+
+      <h3>2. Gli assi cartesiani</h3>
+      <p>Prima delle barre disegniamo due linee di riferimento: l'asse X orizzontale (in basso) e l'asse Y verticale (a sinistra), spesso <strong>tratteggiate</strong> per non "sporcare" troppo il disegno. Le linee tratteggiate si ottengono con <code>ctx.setLineDash([5, 5])</code> prima di <code>stroke()</code> (poi si torna alla linea continua con <code>ctx.setLineDash([])</code>).</p>
+
+      <h3>3. Le barre proporzionali</h3>
+      <p>Ogni barra è un semplice <code>fillRect</code>. La parte più delicata è calcolare <strong>altezza e posizione</strong> in proporzione ai dati:</p>
+      <ul>
+        <li>si calcola quanto spazio orizzontale spetta a ogni barra dividendo la larghezza utile del grafico per il numero di voti;</li>
+        <li>si calcola un "fattore di scala" verticale confrontando l'altezza disponibile con il valore massimo tra i dati, così il valore più alto occupa quasi tutta l'altezza del grafico e gli altri sono proporzionati di conseguenza;</li>
+        <li>la barra si disegna partendo dal <strong>basso</strong>: la sua coordinata y è <code>(altezza totale del grafico) - (altezza della barra)</code>, perché ricordiamo che y cresce verso il basso (sezione 1) e quindi "in alto" significa y più piccola.</li>
+      </ul>
+
+      <h3>4. Le etichette sull'asse X, con un for</h3>
+      <p>Sotto ogni barra scriviamo il voto corrispondente con <code>fillText</code>, dentro un <code>for</code> (o <code>forEach</code>) che scorre l'array dei dati: ad ogni iterazione cambia solo la coordinata x (in base all'indice) mentre il testo cambia in base al valore.</p>
+
+      <h3>5. I numeri sull'asse Y, con un for</h3>
+      <p>Allo stesso modo, a fianco dell'asse Y si scrivono con un altro <code>for</code> alcuni valori numerici di riferimento (es. 0, 2, 4, 6...) per capire a colpo d'occhio quanto vale l'altezza delle barre, usando lo stesso fattore di scala calcolato al punto 3 per posizionarli correttamente.</p>
+
+      <h3>6. La scritta verticale "Quantità"</h3>
+      <p>Per etichettare l'asse Y nel suo complesso si scrive "Quantità" ruotato di 90°, esattamente con lo schema della sezione 6: <code>save()</code> → <code>translate()</code> nel punto a sinistra dell'asse Y → <code>rotate(-Math.PI/2)</code> → <code>fillText()</code> → <code>restore()</code>.</p>
+
+      <p>Il risultato finale è un grafico completo, leggibile e proporzionato, costruito solo con i metodi visti in questo glossario: <code>fillRect</code>, path per gli assi tratteggiati, <code>fillText</code> nei due <code>for</code>, e la rotazione per l'etichetta verticale.</p>
+    </div>
+
+    <h3 class="titolo-esempio">💻 Codice di esempio (semplificato)</h3>
+    <pre class="code-block"><code>const voti = [0, 0, 0, 1, 2, 5, 8, 6, 4, 2, 1]; // indice = voto, valore = n. studenti
+const max = Math.max(...voti);
+const margine = 50;
+const larghezzaUtile = canvas.width - margine - 20;
+const altezzaUtile = canvas.height - margine - 20;
+const larghezzaBarra = larghezzaUtile / voti.length;
+const scalaY = altezzaUtile / max;
+
+// assi
+ctx.beginPath();
+ctx.moveTo(margine, 20);
+ctx.lineTo(margine, altezzaUtile + 20);
+ctx.lineTo(margine + larghezzaUtile, altezzaUtile + 20);
+ctx.stroke();
+
+voti.forEach((valore, voto) => {
+  const altezzaBarra = valore * scalaY;
+  const x = margine + voto * larghezzaBarra;
+  const y = (altezzaUtile + 20) - altezzaBarra;
+
+  ctx.fillStyle = "#4f8ef7";
+  ctx.fillRect(x + 4, y, larghezzaBarra - 8, altezzaBarra);
+
+  // etichetta voto sotto la barra (asse X)
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "center";
+  ctx.fillText(voto, x + larghezzaBarra / 2, altezzaUtile + 35);
+});
+
+// numeri sull'asse Y
+for (let v = 0; v <= max; v += 2) {
+  const y = (altezzaUtile + 20) - v * scalaY;
+  ctx.fillText(v, margine - 15, y);
+}
+
+// scritta verticale "Quantità"
+ctx.save();
+ctx.translate(15, altezzaUtile / 2 + 20);
+ctx.rotate(-Math.PI / 2);
+ctx.textAlign = "center";
+ctx.fillText("Quantità", 0, 0);
+ctx.restore();</code></pre>
+
+    <div class="esempio-live">
+      <div class="canvas-wrap">
+        <canvas id="canvas-9" width="560" height="360"></canvas>
+      </div>
+      <button class="btn-esegui" id="btn-9">▶ Esegui</button>
+    </div>
+  </section>
+
+  <footer class="footer">Glossario Canvas — Lezione 15</footer>
+
+</main>
+
+<script src="glossario-canvas.js"></script>
+</body>
+</html>
