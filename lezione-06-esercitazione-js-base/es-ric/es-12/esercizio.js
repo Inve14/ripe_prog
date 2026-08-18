@@ -7,3 +7,11 @@
 const persona = { nome: "Mario", cognome: "Rossi", voto: 8, materia: "Informatica" };
 
 // Scrivi qui il tuo codice
+
+
+
+
+
+for (const chiave in persona) {
+    console.log(chiave , " -> " , persona[chiave]);   
+}

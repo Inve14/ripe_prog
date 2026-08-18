@@ -37,39 +37,48 @@ Elena,Conti,6,5,4,7,6
 // scrivi qui il tuo codice
 
 
-// 1. Trasforma il CSV in un array di dizionari (uno per
-//    studente), con i voti convertiti in NUMERI (non stringhe!).
-
-//elimino gli spazi sopra e sotto del csv
-let csvPagelle_1 = csvPagelle.trim();
-
-//non serve rimuovere gli spazi con .replaceAll perchè il csv è già senza spazi
-
-//creiamo un array per avere in maniera ordinata le varie righe della pagella usando split sull'"a capo" (\n)
-const righe_pagelle = csvPagelle_1.split("\n");
-
-//usiamo lo shift per avere in maniera separata:
-// l'header: che contiene la riga che corrisponde a "nome,cognome,italiano,matematica,inglese,storia,scienze"
-// rows senza header: che contiene le righe con dentro i valori effettivi dell'header
-
-const header_pagelle = righe_pagelle.shift();
-
-//usiamo il .split nell'header per creare un array ordinato con tutti i valori delle colonne in ordine
-const colonne = header_pagelle.split(",");
+//elimino gli "a capo"
+let csv = csvPagelle.trim();
 
 
-//creiamo il csv
+//righe del csv
+const rows = csv.split('\n');
 
-const studenti = righe_pagelle.map((riga) => {
-    const valori = riga.split(",");
+
+//intestazioni del csv
+const headers = rows.shift();
+//headers = "nome,cognome,italiano,matematica,inglese,storia,scienze
+
+
+const colonne = headers.split(',');
+//colonne = ["nome", "cognome", "italiano", ....]
+
+//rows = ["Luca,Rossi,7,5,8,6,7", "Giulia,Bianchi,9,8,9,7,10", ....]
+
+
+const studenti = rows.map((studente) => {
+    const valori = studente.split(',');
+    //valori = ["Luca", "Rossi", "7", ...]
+
     const dizionario = {};
-    
-    colonne.forEach((nomecolonna, i) => {
-        dizionario[nomecolonna]=valori[i];
+
+    let somma = 0;
+    let num_voti = 0;
+
+    colonne.forEach((nomeColonna, indice) => {
+        dizionario[nomeColonna] = valori[indice];
+        if(indice > 1){
+            somma += parseInt(valori[indice]);
+            num_voti++;
+        }
     });
-
+    if(somma/num_voti >=6){
+        dizionario["valutazione"] = "Promosso";
+    } else {
+        dizionario["valutazione"] = "Bocciato";
+    }
+    dizionario["media"] = somma/num_voti;
     return dizionario;
-
 });
 
 console.log(studenti);

@@ -109,6 +109,9 @@ console.log(rows);
 
 const header = rows.shift();
 
+//headers = "nome,cognome,voto"
+//rows = ["Luca,Rossi,7", ...]
+
 console.log("--- header (restituito da shift) ---");
 console.log(header);
 console.log("--- rows (senza più l'header, modificato da shift) ---");
@@ -121,6 +124,9 @@ console.log(rows);
 // L'header per ora è ancora una stringa unica
 // ("nome,cognome,voto"). Con split(',') la trasformiamo in un
 // array con i nomi delle colonne.
+
+
+//headers = "nome,cognome,voto"
 
 const colonne = header.split(',');
 //colonne = ["nome", "cognome", "voto"]
@@ -155,7 +161,6 @@ const studenti = rows.map((row) => {
 });
 
 
-
 console.log("--- studenti (array di dizionari) ---");
 console.log(studenti);
 
@@ -187,7 +192,7 @@ studenti.forEach((studente) => {
 // la riga dei valori con Object.values() + join(','), infine
 // uniamo tutte le righe (header compreso) con join('\n').
 
-const headerRisultato = colonne.join(','); //-> colonne =["nome", "cognome", "voto"] -> headerRsiultato = "nome,cgnome,voto"
+const headerRisultato = colonne.join(', '); //-> colonne =["nome", "cognome", "voto"] -> headerRsiultato = "nome, cognome, voto"
 const righeRisultato = studenti.map((studente) => Object.values(studente).join(',')); //righeRisultato = ["Luca,Rossi,7", "Giulia,Bianchi,9",....]
 const csvRisultato = headerRisultato + '\n' + righeRisultato.join('\n');
 

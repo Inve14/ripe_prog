@@ -1,0 +1,206 @@
+============================================================
+ESERCIZI CANVAS — Lezione 15
+============================================================
+
+Per ogni esercizio: crea un file HTML con un tag <canvas> e un
+file JS collegato (getElementById + getContext("2d")). Usa un
+canvas di almeno 500x400 pixel, tranne dove indicato diversamente.
+
+Ricorda: (0,0) è in alto a sinistra, l'asse Y cresce verso il
+basso.
+
+============================================================
+LIVELLO FACILE (4 esercizi)
+============================================================
+
+--- ESERCIZIO 1: Tre rettangoli affiancati ---
+
+Consegna:
+Disegna 3 rettangoli colorati, tutti della stessa dimensione,
+posizionati uno accanto all'altro in orizzontale, con un piccolo
+spazio vuoto fra uno e l'altro.
+
+Risultato atteso:
+Tre blocchi di colore diverso (a scelta) allineati in fila,
+ben distanziati e non sovrapposti.
+
+Suggerimento:
+Usa fillStyle + fillRect(x, y, w, h) tre volte, cambiando solo
+la coordinata x di ogni rettangolo (es. x, x + larghezza + spazio,
+x + 2*(larghezza + spazio) ...).
+
+
+--- ESERCIZIO 2: Semaforo ---
+
+Consegna:
+Disegna un semaforo: un rettangolo verticale (il corpo del
+semaforo) e al suo interno 3 cerchi allineati in verticale,
+colorati rispettivamente di rosso, giallo e verde dall'alto
+verso il basso.
+
+Risultato atteso:
+Un rettangolo scuro (es. grigio o nero) con dentro tre cerchi
+colorati, uno sopra l'altro, ben centrati orizzontalmente nel
+rettangolo.
+
+Suggerimento:
+Usa fillRect per il corpo del semaforo, poi beginPath + arc +
+fill per ogni cerchio, tenendo la stessa coordinata x per tutti
+e tre e cambiando solo y.
+
+
+--- ESERCIZIO 3: Il tuo nome al centro ---
+
+Consegna:
+Scrivi il tuo nome al centro esatto del canvas, con un font
+grande e ben leggibile.
+
+Risultato atteso:
+Il testo appare perfettamente centrato sia orizzontalmente sia
+verticalmente rispetto al canvas, qualunque sia la dimensione
+del canvas.
+
+Suggerimento:
+Usa font per la dimensione, textAlign = "center" e
+textBaseline = "middle", poi fillText(nome, canvas.width/2,
+canvas.height/2).
+
+
+--- ESERCIZIO 4: Una casa ---
+
+Consegna:
+Disegna una casa semplice: un rettangolo per il corpo della
+casa e un triangolo sopra di esso per il tetto.
+
+Risultato atteso:
+Una forma riconoscibile come "casa": rettangolo colorato in
+basso, triangolo colorato appoggiato esattamente sopra il bordo
+superiore del rettangolo, senza spazi vuoti o sovrapposizioni
+strane.
+
+Suggerimento:
+Usa fillRect per il corpo. Per il tetto usa beginPath + moveTo
++ lineTo (2 volte) + closePath + fill, facendo attenzione che
+i due punti in basso del triangolo coincidano esattamente con
+i due angoli superiori del rettangolo.
+
+
+============================================================
+LIVELLO MEDIO (4 esercizi)
+============================================================
+
+--- ESERCIZIO 5: Scacchiera 8x8 ---
+
+Consegna:
+Disegna una scacchiera 8x8 con caselle di colore alternato
+(es. bianco e marrone/nero), usando due cicli for annidati
+(uno per le righe, uno per le colonne).
+
+Risultato atteso:
+Una griglia 8x8 di quadrati tutti della stessa dimensione, dove
+il colore alterna correttamente riga per riga e colonna per
+colonna (come una vera scacchiera, non a strisce).
+
+Suggerimento:
+Con due for (riga da 0 a 7, colonna da 0 a 7), calcola x e y
+della casella moltiplicando riga/colonna per la dimensione di
+una casella. Per decidere il colore, controlla se
+(riga + colonna) è pari o dispari con l'operatore resto (%).
+
+
+--- ESERCIZIO 6: Grafico a barre orizzontali ---
+
+Consegna:
+Disegna un grafico a barre orizzontali con 5 valori a tua
+scelta, ognuno con un'etichetta di testo accanto alla barra
+corrispondente.
+
+Risultato atteso:
+5 barre orizzontali di lunghezza proporzionale al valore che
+rappresentano, impilate una sotto l'altra, ciascuna con
+un'etichetta (nome o numero) scritta a fianco.
+
+Suggerimento:
+Usa un array di valori e un for (o forEach) che scorre l'array:
+per ogni valore disegna un fillRect che parte sempre dalla
+stessa x ma ha larghezza proporzionale al valore (es. valore *
+un fattore di scala), cambiando solo la y ad ogni iterazione.
+Usa fillText per l'etichetta.
+
+
+--- ESERCIZIO 7: Orologio analogico (solo i segni delle ore) ---
+
+Consegna:
+Disegna il quadrante di un orologio analogico: un cerchio
+grande per il bordo, e 12 piccoli segni (trattini o punti) posizionati
+lungo la circonferenza in corrispondenza delle 12 ore. Non
+servono le lancette.
+
+Risultato atteso:
+Un cerchio con 12 piccoli segni disposti equamente lungo il suo
+perimetro, come i numeri di un orologio (senza scrivere i
+numeri, solo i segni).
+
+Suggerimento:
+Usa arc() per il cerchio esterno. Per i 12 segni usa un for da
+0 a 11: calcola l'angolo di ogni segno con la formula
+angolo = i * (2*Math.PI / 12), poi usa Math.cos(angolo) e
+Math.sin(angolo) per calcolare le coordinate x,y di ogni segno
+rispetto al centro del cerchio (ricorda la conversione
+gradi -> radianti se preferisci ragionare in gradi).
+
+
+--- ESERCIZIO 8: Bandiera italiana ---
+
+Consegna:
+Disegna la bandiera italiana: 3 rettangoli verticali affiancati
+(verde, bianco, rosso) della stessa dimensione, e al centro del
+rettangolo bianco la scritta "Italia" ben centrata.
+
+Risultato atteso:
+Tre bande verticali di uguale larghezza, senza spazi vuoti fra
+loro, con il testo "Italia" leggibile e centrato sopra la banda
+bianca.
+
+Suggerimento:
+Usa 3 fillRect consecutivi, ognuno largo un terzo del canvas,
+partendo da x=0, x=larghezza/3, x=2*larghezza/3. Per il testo
+usa textAlign = "center" e come coordinata x il centro esatto
+della banda bianca (non del canvas intero!).
+
+
+============================================================
+LIVELLO COMPLETO (1 esercizio)
+============================================================
+
+--- ESERCIZIO 9: Istogramma completo dei voti ---
+
+Consegna:
+Dato un array di voti degli studenti (es. un array dove ogni
+indice rappresenta un voto da 0 a 10 e il valore è quanti
+studenti hanno preso quel voto), costruisci un istogramma
+completo con:
+  - assi cartesiani (linea per l'asse X e per l'asse Y);
+  - una barra colorata per ogni voto, alta in proporzione al
+    numero di studenti;
+  - un'etichetta con il voto sotto ogni barra, generata con un
+    for che scorre l'array;
+  - i numeri di riferimento sull'asse Y (es. 0, 2, 4, 6...),
+    generati anch'essi con un for;
+  - la scritta "Quantità" scritta verticalmente lungo l'asse Y.
+
+Risultato atteso:
+Un grafico a barre verticale completo e leggibile: si vede
+subito quale voto è stato preso da più studenti, con assi,
+etichette numeriche e la scritta verticale ben posizionata
+senza sovrapporsi alle barre.
+
+Suggerimento:
+Calcola prima un fattore di scala verticale confrontando
+l'altezza disponibile del canvas con il valore massimo
+nell'array (Math.max(...array)), così la barra più alta occupa
+quasi tutto lo spazio verticale disponibile. Ricorda che ogni
+barra va disegnata partendo dal basso: la sua coordinata y è
+(altezza del grafico) - (altezza della barra). Per la scritta
+verticale usa lo schema save() -> translate() -> rotate(-Math.PI/2)
+-> fillText() -> restore() visto nel glossario.
