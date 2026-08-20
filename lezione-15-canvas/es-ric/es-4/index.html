@@ -1,0 +1,30 @@
+<!--
+Consegna:
+Disegna una casa semplice: un rettangolo per il corpo della
+casa e un triangolo sopra di esso per il tetto.
+
+Risultato atteso:
+Una forma riconoscibile come "casa": rettangolo colorato in
+basso, triangolo colorato appoggiato esattamente sopra il bordo
+superiore del rettangolo, senza spazi vuoti o sovrapposizioni
+strane.
+
+Suggerimento:
+Usa fillRect per il corpo. Per il tetto usa beginPath + moveTo
++ lineTo (2 volte) + closePath + fill, facendo attenzione che
+i due punti in basso del triangolo coincidano esattamente con
+i due angoli superiori del rettangolo.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es-4</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="400"></canvas>
+    <script src="script.js"></script>
+    
+</body>
+</html>
