@@ -1,0 +1,36 @@
+<!--
+  SOL-09 - Lista salvata in cache
+  Form nome/voto, tabella persistente salvata e ricaricata dalla cache remota.
+  Concetti: JSON.stringify/parse, caricamento automatico
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SOL-09 - Lista salvata in cache</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5" style="max-width: 600px;">
+    <h1 class="mb-4">Studenti (lista persistente)</h1>
+
+    <div class="row g-2 mb-3">
+      <div class="col">
+        <input type="text" id="inputNome" class="form-control" placeholder="Nome">
+      </div>
+      <div class="col">
+        <input type="number" id="inputVoto" class="form-control" placeholder="Voto">
+      </div>
+    </div>
+
+    <button id="btnAggiungi" class="btn btn-primary mb-4">Aggiungi</button>
+
+    <table class="table table-bordered">
+      <thead><tr><th>Nome</th><th>Voto</th></tr></thead>
+      <tbody id="tbodyStudenti"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

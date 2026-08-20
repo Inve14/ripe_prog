@@ -1,0 +1,34 @@
+<!--
+  SOL-04 - Meteo
+  Due input lat/lon + pulsante. Fetch Open-Meteo, mostra temperatura e vento.
+  Concetti: URL template con due .replace(), dati annidati
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SOL-04 - Meteo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="mb-4">Meteo</h1>
+
+    <div class="row g-2 mb-4" style="max-width: 500px;">
+      <div class="col">
+        <input type="text" id="inputLat" class="form-control" placeholder="Latitudine">
+      </div>
+      <div class="col">
+        <input type="text" id="inputLon" class="form-control" placeholder="Longitudine">
+      </div>
+      <div class="col-auto">
+        <button id="btnCerca" class="btn btn-primary">Cerca</button>
+      </div>
+    </div>
+
+    <div id="risultato" class="alert alert-secondary"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

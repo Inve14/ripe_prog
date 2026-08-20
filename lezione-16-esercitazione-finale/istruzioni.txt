@@ -1,0 +1,82 @@
+ISTRUZIONI — Esercitazione finale (lezione 16)
+================================================
+
+Ciao! Questa è l'esercitazione più grande del corso: 40 esercizi divisi
+in 4 argomenti, in ordine di difficoltà crescente. Non fatevi spaventare
+dal numero: sono organizzati bene, uno alla volta si arriva in fondo
+tranquillamente. Ogni esercizio ha la consegna scritta come commento in
+cima al file, e i file da completare sono vuoti: dovete scrivere tutto
+voi da zero, HTML compreso. È normale sentirsi un po' persi all'inizio
+di ogni esercizio: è proprio lì che si impara di più.
+
+
+COME APRIRE GLI ESERCIZI
+-------------------------
+
+- 01-html-js e 04-canvas: apri il file "index.html" con il browser
+  (doppio click, o tasto destro > apri con > Chrome/Firefox). Il file
+  script.js è già collegato automaticamente dentro l'html.
+
+- 02-csv: questi esercizi NON vanno nel browser. Si eseguono con Node.js
+  dal terminale, dentro la cartella dell'esercizio:
+      node esercizio.js
+
+- 03-ajax-cache: apri "index.html" nel browser per l'esercizio vero e
+  proprio. Il file "prova.js" invece serve per fare un test veloce della
+  fetch PRIMA di scriverla in script.js: si esegue con Node da terminale
+      node prova.js
+  Usalo per capire come è fatta la risposta dell'API (con console.log)
+  prima di metterti a scrivere il codice che aggiorna la pagina.
+
+
+ORDINE CONSIGLIATO
+-------------------
+
+Segui l'ordine delle cartelle, sono già in difficoltà crescente:
+
+  1. 01-html-js   — ripasso di tutto il DOM: querySelector, render(), array
+  2. 02-csv        — parsing di stringhe CSV, senza browser
+  3. 03-ajax-cache — fetch verso API vere e Cache Remota del prof
+  4. 04-canvas     — disegno 2D, dal rettangolo all'istogramma completo
+
+Dentro ogni cartella, fai es-01, poi es-02, e così via fino a es-10:
+sono in ordine di difficoltà crescente, ognuno riusa quello che hai
+imparato nel precedente. Non saltare avanti se un esercizio non ti torna:
+prova a rileggere la consegna con calma, spesso la risposta è già scritta lì.
+
+
+COME CONTROLLARE I CONSOLE.LOG
+--------------------------------
+
+Per gli esercizi nel browser (01, 03, 04): apri la Console con il tasto
+F12 (o tasto destro sulla pagina > Ispeziona > tab "Console"). Lì vedrai
+sia i tuoi console.log sia eventuali errori in rosso: leggili sempre,
+spiegano quasi sempre cosa non va (es. "Cannot read property of
+undefined" vuol dire che stai leggendo un dato che non esiste ancora).
+
+Per gli esercizi CSV e per i "prova.js": i console.log escono
+direttamente nel terminale dove hai lanciato "node".
+
+
+UN CONSIGLIO PER OGNI ARGOMENTO
+----------------------------------
+
+- 01-html-js: scrivi prima l'HTML (input, pulsanti, div/tabelle con un
+  id chiaro), POI il JS. Se un querySelector torna null, controlla che
+  l'id nell'HTML sia scritto esattamente uguale a quello nel JS.
+
+- 02-csv: non complicarti la vita, sono sempre le stesse 3 righe di
+  partenza (trim, split, shift) — scrivile per prime, poi console.log
+  il risultato per controllare che sia un array di dizionari prima di
+  andare avanti.
+
+- 03-ajax-cache: usa SEMPRE prova.js per primo. Fai girare la fetch con
+  Node e guarda con console.log come sono fatti i dati (soprattutto
+  quelli annidati, tipo address.city). Solo dopo aver capito la
+  struttura, scrivi lo stesso codice in script.js.
+
+- 04-canvas: disegna sempre su carta (o a mente) le coordinate prima di
+  scrivere il codice. Il canvas ha l'origine (0,0) in ALTO a sinistra,
+  non in basso come i grafici a scuola — è la fonte di errore più comune.
+
+In bocca al lupo con l'esercitazione finale!
